@@ -1,0 +1,91 @@
+<figure class="overview">
+<svg viewBox="0 0 700 440" role="img" aria-label="ソースコードからクラスファイル、JVM のメタスペース・code cache・ヒープと、インタプリタ・JIT の関係">
+<defs>
+  <marker id="ov-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" class="head"/>
+  </marker>
+</defs>
+
+<rect x="40" y="20" width="160" height="52" rx="8" class="src"/>
+<text x="120" y="42" class="title">ソースコード</text>
+<text x="120" y="61" class="sub">.java・.kt</text>
+<line x1="200" y1="46" x2="326" y2="46" class="arrow" marker-end="url(#ov-arrow)"/>
+<text x="263" y="38" class="label">javac・kotlinc</text>
+<rect x="330" y="20" width="170" height="52" rx="8" class="src"/>
+<text x="415" y="42" class="title">クラスファイル</text>
+<text x="415" y="61" class="sub">バイトコード</text>
+<line x1="380" y1="72" x2="250" y2="146" class="arrow" marker-end="url(#ov-arrow)"/>
+<text x="340" y="122" class="label start">クラスを読み込む</text>
+
+<rect x="20" y="96" width="660" height="330" rx="12" class="jvm"/>
+<text x="36" y="118" class="frame start">JVM（HotSpot）</text>
+<text x="170" y="140" class="group">メモリ</text>
+<text x="550" y="140" class="group">実行するもの</text>
+
+<rect x="40" y="148" width="260" height="62" rx="8" class="mem"/>
+<text x="170" y="172" class="title">メタスペース</text>
+<text x="170" y="194" class="sub">クラスの情報・バイトコード・プロファイル</text>
+
+<rect x="40" y="232" width="260" height="114" rx="8" class="cc"/>
+<text x="170" y="256" class="title">code cache</text>
+<text x="170" y="275" class="sub">ネイティブコード</text>
+<rect x="48" y="285" width="244" height="24" rx="5" class="chip"/>
+<text x="170" y="301" class="chiptext">インタプリタなど、JVM 自身のコード</text>
+<rect x="48" y="315" width="244" height="24" rx="5" class="chip"/>
+<text x="170" y="331" class="chiptext">JIT がコンパイルしたコード（nmethod）</text>
+
+<rect x="40" y="366" width="260" height="46" rx="8" class="heap"/>
+<text x="170" y="386" class="title">ヒープ</text>
+<text x="170" y="403" class="sub">オブジェクト</text>
+
+<rect x="440" y="148" width="220" height="62" rx="8" class="exec"/>
+<text x="550" y="172" class="title">インタプリタ</text>
+<text x="550" y="194" class="sub">バイトコードを1命令ずつ実行</text>
+
+<rect x="440" y="282" width="220" height="62" rx="8" class="exec"/>
+<text x="550" y="306" class="title">JIT（C1・C2）</text>
+<text x="550" y="328" class="sub">よく実行されるメソッドをコンパイル</text>
+
+<line x1="300" y1="164" x2="436" y2="164" class="arrow" marker-end="url(#ov-arrow)"/>
+<text x="370" y="157" class="label">バイトコードを読む</text>
+<line x1="440" y1="194" x2="304" y2="194" class="arrow" marker-end="url(#ov-arrow)"/>
+<text x="370" y="212" class="label">プロファイルを書く</text>
+<line x1="300" y1="210" x2="436" y2="290" class="arrow" marker-end="url(#ov-arrow)"/>
+<text x="392" y="250" class="label start">読む</text>
+<line x1="440" y1="327" x2="290" y2="327" class="arrow" marker-end="url(#ov-arrow)"/>
+<text x="370" y="320" class="label">保存する</text>
+</svg>
+</figure>
+<style>
+  .overview {
+    --bg: #ffffff; --ink: #1f2328; --muted: #57606a; --line: #6e7781;
+    --src-fill: #f6f8fa; --src-stroke: #d0d7de; --jvm-stroke: #afb8c1;
+    --mem-fill: #eef4fb; --mem-stroke: #8fb3dd;
+    --cc-fill: #dbe9fa; --cc-stroke: #2f6fbf; --chip: #ffffff;
+    --exec-fill: #e8f5f1; --exec-stroke: #4a9d8a;
+    margin: 0; padding: 8px 4px; min-width: 600px; box-sizing: border-box; background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  }
+  [data-theme="dark"] .overview {
+    --bg: #1e2227; --ink: #e6e8eb; --muted: #9aa0a8; --line: #8b949e;
+    --src-fill: #262b31; --src-stroke: #3d444d; --jvm-stroke: #4b535d;
+    --mem-fill: #1d2a39; --mem-stroke: #4f7fb8;
+    --cc-fill: #1f3552; --cc-stroke: #6ea6ee; --chip: #182434;
+    --exec-fill: #17302b; --exec-stroke: #4fb39d;
+  }
+  .overview svg { display: block; width: 100%; height: auto; }
+  .overview text { text-anchor: middle; fill: var(--ink); font-size: 12px; }
+  .overview .title { font-size: 14px; font-weight: 700; }
+  .overview .sub, .overview .chiptext { font-size: 12px; }
+  .overview .label, .overview .group, .overview .frame { fill: var(--muted); font-size: 12px; }
+  .overview .frame { font-weight: 700; }
+  .overview .start { text-anchor: start; }
+  .overview .src { fill: var(--src-fill); stroke: var(--src-stroke); }
+  .overview .jvm { fill: none; stroke: var(--jvm-stroke); }
+  .overview .mem, .overview .heap { fill: var(--mem-fill); stroke: var(--mem-stroke); }
+  .overview .cc { fill: var(--cc-fill); stroke: var(--cc-stroke); stroke-width: 2; }
+  .overview .chip { fill: var(--chip); stroke: var(--cc-stroke); }
+  .overview .exec { fill: var(--exec-fill); stroke: var(--exec-stroke); }
+  .overview .arrow { stroke: var(--line); stroke-width: 1.5; fill: none; }
+  .overview .head { fill: var(--line); }
+</style>

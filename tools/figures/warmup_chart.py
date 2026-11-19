@@ -102,15 +102,15 @@ def main():
     # The narrow stage between the two C2 versions is named above the plot
     mid = (x(c2_osr) + x(c2)) / 2
     parts.append(f'<line x1="{mid:.1f}" x2="{mid:.1f}" y1="{Y0 - 10}" y2="{Y0}" stroke="{MUTED}" stroke-width="1"/>')
-    parts.append(text(mid, Y0 - 16, "C2 の OSR 版ができてから通常の版まで（約 48µs）", "stage"))
+    parts.append(text(mid, Y0 - 16, "C1 から C2 の OSR 用のコードへ移る区間（約48µs）", "stage"))
 
     parts.append(polyline(xint, XINT))
     parts.append(polyline(jit, JIT))
 
     # Medians of the 5 runs (tools/warmup_report.py)
-    for r, t, label in ((3.5, 217, "約 220µs"), (22, 31, "約 31µs"), (210, 5.9, "約 6µs")):
+    for r, t, label in ((3.5, 217, "約220µs"), (22, 31, "約31µs"), (210, 5.9, "約6µs")):
         parts.append(text(x(r), y(t) - 10, label, "value"))
-    parts.append(text(x(18), y(562) - 10, "約 560µs", "value"))
+    parts.append(text(x(18), y(562) - 10, "約560µs", "value"))
 
     parts.append(f'<line x1="{X0}" x2="{X0 + 22}" y1="20" y2="20" stroke="{JIT}" stroke-width="2"/>')
     parts.append(text(X0 + 30, 24, "JIT あり（既定の設定）", "legend", "start"))
