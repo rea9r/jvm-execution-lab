@@ -125,7 +125,8 @@ def main():
     print("\n".join(parts))
     print("</svg>\n</figure>")
     print(f"""<style>
-  .warmup {{ margin: 0; padding: 8px 4px; background: {SURFACE};
+  /* Below 600px the chart keeps its size and the embed scrolls sideways, so that the 12px labels stay at 10px or more */
+  .warmup {{ margin: 0; padding: 8px 4px; min-width: 600px; box-sizing: border-box; background: {SURFACE};
     font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; }}
   .warmup svg {{ display: block; width: 100%; height: auto; }}
   .warmup text {{ font-size: 12px; fill: {MUTED}; }}
