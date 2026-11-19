@@ -1,6 +1,6 @@
 # jvm-execution-lab
 
-Experiments that follow one short Java class from its bytecode to the machine code the JIT compiler produces, and to the code cache that keeps that code. Each experiment starts from a prediction and checks it against three records of the same run: the time of every call, the JIT compilation log, and `jcmd` output.
+Experiments that follow one short Java class from its bytecode to the native code the JIT compiler produces, and to the code cache that keeps that code. Each experiment starts from a prediction and checks it against three records of the same run: the time of every call, the JIT compilation log, and `jcmd` output.
 
 All measurements run in the `eclipse-temurin:25.0.5_8-jdk` image (HotSpot, JDK 25.0.5) with 4 CPUs (`--cpuset-cpus=0-3`), 2 GB of memory and a fixed 512 MB heap. With these settings the JVM uses 3 JIT compiler threads, G1, and a 240 MB code cache split into three code heaps. The compilation behaviour shown here is HotSpot's; other JDK versions, CPU counts and runs compile at different moments.
 
