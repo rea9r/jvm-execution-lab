@@ -31,7 +31,7 @@ def cart_entries(codelist):
 
 def cart_bytes(codelist):
     """Sum the size of the Cart entries, measured up to the start of the next entry in address order.
-    The range printed by Compiler.codelist ends at the end of the instructions, before the stubs and other data."""
+    The range printed by Compiler.codelist ends at the end of the code (instructions and stubs), before the data that follows."""
     entries = []
     for line in codelist.splitlines():
         m = ENTRY.match(line)
