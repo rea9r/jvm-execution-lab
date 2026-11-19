@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 -6 1282 474" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 -6 1282 578" role="img">
         <!-- Definitions -->
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -16,7 +16,7 @@
         </defs>
         <!-- Background Grid -->
         <!-- Boundaries (behind everything) -->
-        <rect x="254" y="6" width="1044" height="450" rx="12" stroke-width="1" fill="rgb(201, 221, 227)" stroke="rgb(201, 221, 227)"/>
+        <rect x="254" y="6" width="1044" height="554" rx="12" stroke-width="1" fill="rgb(201, 221, 227)" stroke="rgb(201, 221, 227)"/>
         <rect x="636" y="18" width="220" height="230" rx="12" stroke-width="1" fill="rgb(234, 241, 244)" stroke="rgb(167, 188, 196)"/>
         <rect x="996" y="18" width="260" height="342" rx="12" stroke-width="1.5px" fill="rgb(238, 244, 246)" stroke="rgb(94, 122, 134)"/>
         <rect x="1006" y="44" width="240" height="204" rx="8" stroke-width="1" fill="rgb(220, 232, 237)" stroke="rgb(122, 147, 156)" stroke-dasharray="4px, 3px"/>
@@ -25,7 +25,7 @@
           <path d="M 170 196 L 316 196" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
         </g>
         <g>
-          <path d="M 406 228 L 406 284 Q 406 292 414 292 L 656 292" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+          <path d="M 406 228 L 406 396 Q 406 404 414 404 L 656 404" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
         </g>
         <g>
           <path d="M 406 164 L 406 108 Q 406 100 414 100 L 656 100" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
@@ -41,13 +41,13 @@
         </g>
         <path d="M 1236 196 L 1269 196 Q 1277 196 1277 204 L 1277 396 Q 1277 404 1269 404 L 1236 404" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
         <g>
-          <path d="M 746 324 L 746 340 Q 746 348 738 348 L 414 348 Q 406 348 406 356 L 406 372" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+          <path d="M 746 436 L 746 448 Q 746 456 754 456 L 1118 456 Q 1126 456 1126 464 L 1126 476" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
         </g>
         <g>
-          <path d="M 836 292 L 918 292 Q 926 292 926 300 L 926 396 Q 926 404 934 404 L 1016 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+          <path d="M 836 404 L 1016 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
         </g>
         <g>
-          <path d="M 656 404 L 496 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+          <path d="M 836 508 L 1016 508" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
         </g>
         <!-- Components -->
         <g id="node-classfile">
@@ -89,13 +89,13 @@
         <text x="746" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">プロファイルを使って最適化</text>
         </g>
         <g id="node-interpreter">
-          <rect x="656" y="260" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
-          <rect x="656" y="260" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
-          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 266)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+          <rect x="656" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text x="746" y="290" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタ</text>
-        <text x="746" y="306" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">1命令ずつ実行・回数を記録</text>
+          <text x="746" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタ</text>
+        <text x="746" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">1命令ずつ実行・回数を記録</text>
         </g>
         <g id="node-profiled">
           <rect x="1016" y="68" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
@@ -128,23 +128,23 @@
         <text x="1126" y="322" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタなど JVM 自身のコード</text>
         </g>
         <g id="node-gc">
-          <rect x="656" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
-          <rect x="656" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
-          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+          <rect x="656" y="476" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="476" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 482)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text x="746" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">GC</text>
-        <text x="746" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">ガベージコレクタ</text>
+          <text x="746" y="506" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">GC</text>
+        <text x="746" y="522" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">ガベージコレクタ</text>
         </g>
         <g id="node-heap">
-          <rect x="316" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
-          <rect x="316" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
-          <g transform="matrix(0.6875, 0, 0, 0.6875, 322, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+          <rect x="1016" y="476" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="476" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 482)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text x="406" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">ヒープ</text>
-        <text x="406" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">new で作ったオブジェクト</text>
+          <text x="1126" y="506" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">ヒープ</text>
+        <text x="1126" y="522" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">new で作ったオブジェクト</text>
         </g>
         <g id="node-stack">
           <rect x="1016" y="372" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
@@ -162,8 +162,8 @@
           <text x="212" y="199" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">① 読み込む</text>
         </g>
         <g>
-          <rect x="535" y="285" width="82" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="576" y="295" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">② 1命令ずつ実行</text>
+          <rect x="535" y="397" width="82" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="407" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">② 1命令ずつ実行</text>
         </g>
         <g>
           <rect x="542.2" y="93" width="67.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
@@ -186,16 +186,16 @@
           <text x="1178" y="265" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">⑤ 次の呼び出しから実行</text>
         </g>
         <g>
-          <rect x="518.2" y="328" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="576" y="338" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">オブジェクトを読み書き</text>
+          <rect x="868.2" y="449" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="459" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">オブジェクトを読み書き</text>
         </g>
         <g>
-          <rect x="877.8" y="328" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="926" y="338" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">フレームを読み書き</text>
+          <rect x="877.8" y="384" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="394" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">フレームを読み書き</text>
         </g>
         <g>
-          <rect x="513.4" y="384" width="125.2" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="576" y="394" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">不要なオブジェクトを回収</text>
+          <rect x="863.4" y="488" width="125.2" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="498" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">不要なオブジェクトを回収</text>
         </g>
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
         <g transform="matrix(1, 0, 0, 1, 0, -26)">

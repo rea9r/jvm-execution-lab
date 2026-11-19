@@ -88,7 +88,7 @@
       "sublabel": "1命令ずつ実行・回数を記録",
       "pos": [
         656,
-        260
+        372
       ],
       "size": [
         180,
@@ -144,7 +144,7 @@
       "sublabel": "ガベージコレクタ",
       "pos": [
         656,
-        372
+        476
       ],
       "size": [
         180,
@@ -157,11 +157,11 @@
       "label": "ヒープ",
       "sublabel": "new で作ったオブジェクト",
       "pos": [
-        316,
-        372
+        1016,
+        476
       ],
       "size": [
-        180,
+        220,
         64
       ]
     },
@@ -251,7 +251,7 @@
       "toSide": "left",
       "labelAt": [
         576,
-        295
+        407
       ]
     },
     {
@@ -321,7 +321,11 @@
       "to": "heap",
       "label": "オブジェクトを読み書き",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toSide": "top",
+      "labelAt": [
+        926,
+        459
+      ]
     },
     {
       "id": "interpreter-stack",
@@ -336,8 +340,8 @@
       "from": "gc",
       "to": "heap",
       "label": "不要なオブジェクトを回収",
-      "fromSide": "left",
-      "toSide": "right"
+      "fromSide": "right",
+      "toSide": "left"
     }
   ]
 }
