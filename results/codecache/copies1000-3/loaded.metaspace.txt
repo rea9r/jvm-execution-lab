@@ -1,0 +1,121 @@
+1580:
+Metaspace        used 8005K, committed 12928K, reserved 1114112K
+ class space     used 2108K, committed 4096K, reserved 1048576K
+
+Total Usage - 1009 loaders, 4903 classes (856 shared):
+  Non-Class: 1014 chunks,     11.84 MB capacity,    8.59 MB ( 73%) committed,     5.76 MB ( 49%) used,     2.83 MB ( 24%) free,     0 bytes (  0%) waste , deallocated: 5 blocks with 568 bytes
+      Class: 1010 chunks,      4.16 MB capacity,    3.98 MB ( 95%) committed,     2.06 MB ( 49%) used,     1.92 MB ( 46%) free,     0 bytes (  0%) waste , deallocated: 0 blocks with 0 bytes
+       Both: 2024 chunks,     16.00 MB capacity,   12.56 MB ( 79%) committed,     7.82 MB ( 49%) used,     4.74 MB ( 30%) free,     0 bytes (  0%) waste , deallocated: 5 blocks with 568 bytes
+
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,       8.62 MB ( 13%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       4.00 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      12.62 MB (  1%) committed. 
+
+
+Chunk freelists:
+   Non-Class:
+
+ 16m: (none)
+  8m: (none)
+  4m:    2, capacity=8.00 MB, committed=0 bytes (  0%)
+  2m: (none)
+  1m: (none)
+512k: (none)
+256k: (none)
+128k:    2, capacity=256.00 KB, committed=0 bytes (  0%)
+ 64k: (none)
+ 32k:    2, capacity=64.00 KB, committed=0 bytes (  0%)
+ 16k: (none)
+  8k:    2, capacity=16.00 KB, committed=0 bytes (  0%)
+  4k: (none)
+  2k: (none)
+  1k: (none)
+Total word size: 8.33 MB, committed: 0 bytes (  0%)
+
+       Class:
+
+ 16m: (none)
+  8m:    1, capacity=8.00 MB, committed=0 bytes (  0%)
+  4m: (none)
+  2m:    1, capacity=2.00 MB, committed=0 bytes (  0%)
+  1m:    1, capacity=1.00 MB, committed=0 bytes (  0%)
+512k:    1, capacity=512.00 KB, committed=0 bytes (  0%)
+256k:    1, capacity=256.00 KB, committed=0 bytes (  0%)
+128k: (none)
+ 64k:    1, capacity=64.00 KB, committed=0 bytes (  0%)
+ 32k: (none)
+ 16k:    1, capacity=16.00 KB, committed=0 bytes (  0%)
+  8k:    1, capacity=8.00 KB, committed=0 bytes (  0%)
+  4k: (none)
+  2k: (none)
+  1k: (none)
+Total word size: 11.84 MB, committed: 0 bytes (  0%)
+
+        Both:
+
+ 16m: (none)
+  8m:    1, capacity=8.00 MB, committed=0 bytes (  0%)
+  4m:    2, capacity=8.00 MB, committed=0 bytes (  0%)
+  2m:    1, capacity=2.00 MB, committed=0 bytes (  0%)
+  1m:    1, capacity=1.00 MB, committed=0 bytes (  0%)
+512k:    1, capacity=512.00 KB, committed=0 bytes (  0%)
+256k:    1, capacity=256.00 KB, committed=0 bytes (  0%)
+128k:    2, capacity=256.00 KB, committed=0 bytes (  0%)
+ 64k:    1, capacity=64.00 KB, committed=0 bytes (  0%)
+ 32k:    2, capacity=64.00 KB, committed=0 bytes (  0%)
+ 16k:    1, capacity=16.00 KB, committed=0 bytes (  0%)
+  8k:    3, capacity=24.00 KB, committed=0 bytes (  0%)
+  4k: (none)
+  2k: (none)
+  1k: (none)
+Total word size: 20.16 MB, committed: 0 bytes (  0%)
+
+
+
+Waste (unused committed space): (percentages refer to total committed size 12.62 MB):
+        Waste in chunks in use:      0 bytes (  0%)
+        Free in chunks in use:      4.74 MB ( 38%)
+                In free chunks:      0 bytes (  0%)
+Deallocated from chunks in use:    568 bytes ( <1%) (5 blocks)
+                       -total-:      4.74 MB ( 38%)
+
+chunk header pool: 2036 items, 144.25 KB.
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 2018.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 202.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 2024.
+num_chunk_merges: 0.
+num_chunk_splits: 2015.
+num_chunks_enlarged: 2004.
+num_inconsistent_stats: 0.
+
+
+Settings:
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+UseCompressedClassPointers 1, UseCompactObjectHeaders 0
+Narrow klass pointer bits 32, Max shift 3
+Narrow klass base: 0x00000f8000000000, Narrow klass shift: 0
+Encoding Range: [0x00000f8000000000 - 0x00000f8100000000), (4294967296 bytes)
+Klass Range:    [0x00000f8000010000 - 0x00000f8041000000), (1090453504 bytes)
+Klass ID Range:  [65536 - 1090519033) (1090453497)
+Protection zone: [0x00000f8000000000 - 0x00000f8000010000), (65536 bytes)
+
+

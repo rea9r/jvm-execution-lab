@@ -1,0 +1,10 @@
+798:
+CodeHeap 'non-profiled nmethods': size=120032Kb used=3778Kb max_used=3782Kb free=116253Kb
+ bounds [0x0000ffff6bf54000, 0x0000ffff6c314000, 0x0000ffff7348c000]
+CodeHeap 'profiled nmethods': size=120032Kb used=1566Kb max_used=5530Kb free=118465Kb
+ bounds [0x0000ffff6448b000, 0x0000ffff649fb000, 0x0000ffff6b9c3000]
+CodeHeap 'non-nmethods': size=5700Kb used=1224Kb max_used=1320Kb free=4476Kb
+ bounds [0x0000ffff6b9c3000, 0x0000ffff6bc33000, 0x0000ffff6bf54000]
+CodeCache: size=245764Kb, used=6568Kb, max_used=10632Kb, free=239194Kb
+ total_blobs=7975, nmethods=7561, adapters=323, full_count=0
+Compilation: enabled, stopped_count=0, restarted_count=0
