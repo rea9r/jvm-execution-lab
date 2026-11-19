@@ -1,0 +1,5 @@
+[
+  { "fill": "#00708F", "stroke": "#00708F", "label": "JVM の中の処理" },
+  { "fill": "#595959", "stroke": "#595959", "label": "メモリ領域" },
+  { "fill": "#FFFFFF", "stroke": "#595959", "label": "JVM の外" }
+]

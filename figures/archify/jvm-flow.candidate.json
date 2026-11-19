@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "1つのメソッドが JVM で実行される流れ",
+    "output": "build/archify/jvm-flow.html",
+    "locale": "ja",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "JVM の中の処理"
+        },
+        "database": {
+          "label": "メモリ領域"
+        },
+        "external": {
+          "label": "JVM の外"
+        }
+      },
+      "mode": "hidden"
+    },
+    "translations": {
+      "legend.title": "凡例"
+    }
+  },
+  "components": [
+    {
+      "id": "classfile",
+      "type": "external",
+      "label": "クラスファイル",
+      "sublabel": ".class",
+      "pos": [
+        40,
+        164
+      ],
+      "size": [
+        130,
+        64
+      ]
+    },
+    {
+      "id": "metaspace",
+      "type": "database",
+      "label": "メタスペース",
+      "sublabel": "バイトコード・プロファイル",
+      "pos": [
+        316,
+        164
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "c1",
+      "type": "backend",
+      "label": "C1",
+      "sublabel": "短い時間でコンパイル",
+      "pos": [
+        656,
+        68
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "backend",
+      "label": "C2",
+      "sublabel": "プロファイルを使って最適化",
+      "pos": [
+        656,
+        164
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "interpreter",
+      "type": "backend",
+      "label": "インタプリタ",
+      "sublabel": "1命令ずつ実行・回数を記録",
+      "pos": [
+        656,
+        260
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "profiled",
+      "type": "database",
+      "label": "profiled（約117MB）",
+      "sublabel": "C1 のコード（tier 2・3）",
+      "pos": [
+        1016,
+        68
+      ],
+      "size": [
+        220,
+        64
+      ]
+    },
+    {
+      "id": "non-profiled",
+      "type": "database",
+      "label": "non-profiled（約117MB）",
+      "sublabel": "C1（tier 1）と C2（tier 4）のコード",
+      "pos": [
+        1016,
+        164
+      ],
+      "size": [
+        220,
+        64
+      ]
+    },
+    {
+      "id": "non-nmethods",
+      "type": "database",
+      "label": "non-nmethods（約5.6MB）",
+      "sublabel": "インタプリタなど JVM 自身のコード",
+      "pos": [
+        1016,
+        276
+      ],
+      "size": [
+        220,
+        64
+      ]
+    },
+    {
+      "id": "gc",
+      "type": "backend",
+      "label": "GC",
+      "sublabel": "ガベージコレクタ",
+      "pos": [
+        656,
+        372
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "heap",
+      "type": "database",
+      "label": "ヒープ",
+      "sublabel": "new で作ったオブジェクト",
+      "pos": [
+        316,
+        372
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "stack",
+      "type": "database",
+      "label": "スタック",
+      "sublabel": "メソッドごとのフレーム",
+      "pos": [
+        1016,
+        372
+      ],
+      "size": [
+        220,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "JVM（HotSpot）",
+      "wraps": [
+        "metaspace",
+        "c1",
+        "c2",
+        "interpreter",
+        "profiled",
+        "non-profiled",
+        "non-nmethods",
+        "gc",
+        "heap",
+        "stack"
+      ],
+      "pad": 62
+    },
+    {
+      "kind": "region",
+      "label": "JIT のコンパイラ",
+      "wraps": [
+        "c1",
+        "c2"
+      ],
+      "pad": 20
+    },
+    {
+      "kind": "region",
+      "label": "code cache（既定 240MB）",
+      "wraps": [
+        "profiled",
+        "non-profiled",
+        "non-nmethods"
+      ],
+      "pad": 20
+    },
+    {
+      "kind": "security-group",
+      "label": "nmethod（JIT がコンパイルしたコード）",
+      "wraps": [
+        "profiled",
+        "non-profiled"
+      ],
+      "pad": 10
+    }
+  ],
+  "connections": [
+    {
+      "id": "load-class",
+      "from": "classfile",
+      "to": "metaspace",
+      "label": "① 読み込む",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        212,
+        199
+      ]
+    },
+    {
+      "id": "interpret",
+      "from": "metaspace",
+      "to": "interpreter",
+      "label": "② 1命令ずつ実行",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "labelAt": [
+        576,
+        295
+      ]
+    },
+    {
+      "id": "compile-c1",
+      "from": "metaspace",
+      "to": "c1",
+      "label": "③ コンパイル",
+      "variant": "emphasis",
+      "fromSide": "top",
+      "toSide": "left",
+      "labelAt": [
+        576,
+        103
+      ]
+    },
+    {
+      "id": "compile-c2",
+      "from": "metaspace",
+      "to": "c2",
+      "label": "④ コンパイルし直す",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "store-c1",
+      "from": "c1",
+      "to": "profiled",
+      "label": "ネイティブコードを保存",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "store-c2",
+      "from": "c2",
+      "to": "non-profiled",
+      "label": "ネイティブコードを保存",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "run-native",
+      "from": "non-profiled",
+      "to": "stack",
+      "label": "⑤ 次の呼び出しから実行",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "right",
+      "labelAt": [
+        1178,
+        265
+      ],
+      "via": [
+        [
+          1277,
+          196
+        ],
+        [
+          1277,
+          404
+        ]
+      ]
+    },
+    {
+      "id": "interpreter-heap",
+      "from": "interpreter",
+      "to": "heap",
+      "label": "オブジェクトを読み書き",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "interpreter-stack",
+      "from": "interpreter",
+      "to": "stack",
+      "label": "フレームを読み書き",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "gc-heap",
+      "from": "gc",
+      "to": "heap",
+      "label": "不要なオブジェクトを回収",
+      "fromSide": "left",
+      "toSide": "right"
+    }
+  ]
+}

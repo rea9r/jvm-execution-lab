@@ -1,0 +1,40 @@
+/*
+ * 種類の関係を色で示す archify 図向けの配色。
+ * 一部の変更・経路を強調するときの上書きは references/archify.md を参照。
+ * scripts/archify-export.mjs の --css で読み込む。
+ * archify の画像書き出しは、セレクタが svg・.c-・.t-・.a-・.m- などで始まるルールだけを取り込む。
+ * そのため、ルールはすべて svg から始める。
+ *
+ * 色の役割
+ *   処理（backend）: 青緑 #00708F に白い文字
+ *   メモリ・データ（database）: 濃い灰色 #595959 に白い文字
+ *   外部（external）: 白に濃い灰色の枠線
+ *   枠（region）: 薄い青灰 #EAF1F4
+ *   線: 濃い灰色 #4A4A4A。強調（emphasis）の線は青緑
+ */
+
+/* 自動で引いた直線の下敷き。背景色の太い線なので、塗りのある枠の上では白い縁に見える */
+svg path[data-graph-role="automatic-crossover-underlay"] { display: none !important; }
+
+svg .a-default { stroke: #4A4A4A !important; }
+svg .m-default { fill: #4A4A4A !important; }
+svg .t-edge-default { fill: #4A4A4A !important; }
+svg .a-emphasis { stroke: #00708F !important; }
+svg .m-emphasis { fill: #00708F !important; }
+svg .t-edge-emphasis { fill: #00708F !important; }
+
+svg rect.c-region { fill: #EAF1F4 !important; stroke: #A7BCC4 !important; stroke-width: 1px !important; stroke-dasharray: none !important; }
+svg g[data-graph-role="structural-frame-label"] rect { fill: #EAF1F4 !important; stroke: none !important; }
+svg g[data-composition-frame-label] text { fill: #2E3A42 !important; font-size: 10px !important; }
+
+svg .c-backend { fill: #00708F !important; stroke: #00708F !important; }
+svg .c-database { fill: #595959 !important; stroke: #595959 !important; }
+svg .c-external { fill: #FFFFFF !important; stroke: #595959 !important; }
+
+svg g[data-node-kind="backend"] .t-primary, svg g[data-node-kind="backend"] .t-muted,
+svg g[data-node-kind="database"] .t-primary, svg g[data-node-kind="database"] .t-muted { fill: #FFFFFF !important; }
+svg g[data-node-kind="backend"] .t-database, svg g[data-node-kind="database"] .t-database { fill: #9FDCEC !important; }
+svg g[data-node-kind="backend"] .semantic-sigil, svg g[data-node-kind="database"] .semantic-sigil { color: #FFFFFF !important; stroke: #FFFFFF !important; }
+svg g[data-node-kind="external"] .t-primary { fill: #222222 !important; }
+svg g[data-node-kind="external"] .t-muted { fill: #555555 !important; }
+svg g[data-node-kind="external"] .semantic-sigil { color: #595959 !important; stroke: #595959 !important; }

@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 -6 1282 474" role="img">
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(74, 74, 74)"/>
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(0, 112, 143)"/>
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(225, 29, 72)"/>
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(124, 58, 237)"/>
+          </marker>
+        </defs>
+        <!-- Background Grid -->
+        <!-- Boundaries (behind everything) -->
+        <rect x="254" y="6" width="1044" height="450" rx="12" stroke-width="1" fill="rgb(201, 221, 227)" stroke="rgb(201, 221, 227)"/>
+        <rect x="636" y="18" width="220" height="230" rx="12" stroke-width="1" fill="rgb(234, 241, 244)" stroke="rgb(167, 188, 196)"/>
+        <rect x="996" y="18" width="260" height="342" rx="12" stroke-width="1.5px" fill="rgb(238, 244, 246)" stroke="rgb(94, 122, 134)"/>
+        <rect x="1006" y="44" width="240" height="204" rx="8" stroke-width="1" fill="rgb(220, 232, 237)" stroke="rgb(122, 147, 156)" stroke-dasharray="4px, 3px"/>
+        <!-- Connection paths (before components for correct z-order) -->
+        <g>
+          <path d="M 170 196 L 316 196" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 406 228 L 406 284 Q 406 292 414 292 L 656 292" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 406 164 L 406 108 Q 406 100 414 100 L 656 100" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 496 196 L 656 196" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 836 100 L 1016 100" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <g>
+          <path d="M 836 196 L 1016 196" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <path d="M 1236 196 L 1269 196 Q 1277 196 1277 204 L 1277 396 Q 1277 404 1269 404 L 1236 404" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        <g>
+          <path d="M 746 324 L 746 340 Q 746 348 738 348 L 414 348 Q 406 348 406 356 L 406 372" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <g>
+          <path d="M 836 292 L 918 292 Q 926 292 926 300 L 926 396 Q 926 404 934 404 L 1016 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <g>
+          <path d="M 656 404 L 496 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <!-- Components -->
+        <g id="node-classfile">
+          <rect x="40" y="164" width="130" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="40" y="164" width="130" height="64" rx="8" stroke-width="1.25px" fill="rgb(255, 255, 255)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 46, 170)" fill="none" stroke="rgb(89, 89, 89)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text x="105" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(34, 34, 34)">クラスファイル</text>
+        <text x="105" y="210" font-size="9px" text-anchor="middle" fill="rgb(85, 85, 85)">.class</text>
+        </g>
+        <g id="node-metaspace">
+          <rect x="316" y="164" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="316" y="164" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 322, 170)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="406" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">メタスペース</text>
+        <text x="406" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">バイトコード・プロファイル</text>
+        </g>
+        <g id="node-c1">
+          <rect x="656" y="68" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="68" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 74)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="98" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">C1</text>
+        <text x="746" y="114" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">短い時間でコンパイル</text>
+        </g>
+        <g id="node-c2">
+          <rect x="656" y="164" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="164" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 170)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">C2</text>
+        <text x="746" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">プロファイルを使って最適化</text>
+        </g>
+        <g id="node-interpreter">
+          <rect x="656" y="260" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="260" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 266)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="290" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタ</text>
+        <text x="746" y="306" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">1命令ずつ実行・回数を記録</text>
+        </g>
+        <g id="node-profiled">
+          <rect x="1016" y="68" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="68" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 74)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="98" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">profiled（約117MB）</text>
+        <text x="1126" y="114" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">C1 のコード（tier 2・3）</text>
+        </g>
+        <g id="node-non-profiled">
+          <rect x="1016" y="164" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="164" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 170)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-profiled（約117MB）</text>
+        <text x="1126" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">C1（tier 1）と C2（tier 4）のコード</text>
+        </g>
+        <g id="node-non-nmethods">
+          <rect x="1016" y="276" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="276" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 282)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="306" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-nmethods（約5.6MB）</text>
+        <text x="1126" y="322" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタなど JVM 自身のコード</text>
+        </g>
+        <g id="node-gc">
+          <rect x="656" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">GC</text>
+        <text x="746" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">ガベージコレクタ</text>
+        </g>
+        <g id="node-heap">
+          <rect x="316" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="316" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 322, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="406" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">ヒープ</text>
+        <text x="406" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">new で作ったオブジェクト</text>
+        </g>
+        <g id="node-stack">
+          <rect x="1016" y="372" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="372" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">スタック</text>
+        <text x="1126" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">メソッドごとのフレーム</text>
+        </g>
+        <!-- Connection labels -->
+        <g>
+          <rect x="183" y="189" width="58" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="212" y="199" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">① 読み込む</text>
+        </g>
+        <g>
+          <rect x="535" y="285" width="82" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="295" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">② 1命令ずつ実行</text>
+        </g>
+        <g>
+          <rect x="542.2" y="93" width="67.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="103" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">③ コンパイル</text>
+        </g>
+        <g>
+          <rect x="527.8" y="176" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="186" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">④ コンパイルし直す</text>
+        </g>
+        <g>
+          <rect x="868.2" y="80" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="90" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
+        </g>
+        <g>
+          <rect x="868.2" y="176" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="186" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
+        </g>
+        <g>
+          <rect x="1120.2" y="255" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="1178" y="265" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">⑤ 次の呼び出しから実行</text>
+        </g>
+        <g>
+          <rect x="518.2" y="328" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="338" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">オブジェクトを読み書き</text>
+        </g>
+        <g>
+          <rect x="877.8" y="328" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="338" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">フレームを読み書き</text>
+        </g>
+        <g>
+          <rect x="513.4" y="384" width="125.2" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="394" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">不要なオブジェクトを回収</text>
+        </g>
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+        <g transform="matrix(1, 0, 0, 1, 0, -26)">
+          <rect x="258" y="48" width="85.6" height="16" rx="3" fill="rgb(201, 221, 227)" stroke-width="0.8px"/>
+          <text x="262" y="61" font-size="12px" font-weight="650" fill="rgb(46, 58, 66)">JVM（HotSpot）</text>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 0, -26)">
+          <rect x="640" y="48" width="96.4" height="16" rx="3" fill="rgb(234, 241, 244)" stroke-width="0.8px"/>
+          <text x="644" y="61" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">JIT のコンパイラ</text>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 0, -8)">
+          <rect x="1000" y="30" width="139.6" height="16" rx="3" fill="rgb(238, 244, 246)" stroke-width="0.8px"/>
+          <text x="1004" y="43" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">code cache（既定 240MB）</text>
+        </g>
+        <g>
+          <rect x="1010" y="48" width="209.8" height="16" rx="3" fill="rgb(220, 232, 237)" stroke-width="0.8px"/>
+          <text x="1014" y="61" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">nmethod（JIT がコンパイルしたコード）</text>
+        </g>
+        <!-- Legend -->
+      <g><text x="40" y="35" font-size="12px" font-weight="650" fill="rgb(34, 34, 34)">凡例</text><rect x="40" y="46" width="16" height="10" rx="2.5" fill="#00708F" stroke="#00708F" stroke-width="1"/><text x="62" y="55" font-size="10px" fill="rgb(85, 85, 85)">JVM の中の処理</text><rect x="40" y="64" width="16" height="10" rx="2.5" fill="#595959" stroke="#595959" stroke-width="1"/><text x="62" y="73" font-size="10px" fill="rgb(85, 85, 85)">メモリ領域</text><rect x="40" y="82" width="16" height="10" rx="2.5" fill="#FFFFFF" stroke="#595959" stroke-width="1"/><text x="62" y="91" font-size="10px" fill="rgb(85, 85, 85)">JVM の外</text></g></svg>

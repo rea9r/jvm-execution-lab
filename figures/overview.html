@@ -1,140 +1,224 @@
 <figure class="jvmflow">
-<svg viewBox="0 0 800 552" role="img" aria-label="1つのメソッドが、クラスファイルからメタスペースに読み込まれ、インタプリタで実行されたあと、C1 と C2 でネイティブコードにコンパイルされて code cache に保存され、次の呼び出しからそのコードが実行される流れ">
-<defs><marker id="ov-head" viewBox="0 0 10 7" refX="9" refY="3.5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="7" orient="auto"><polygon points="0 0, 10 3.5, 0 7" class="head"/></marker></defs>
-<rect x="446.8" y="30" width="16" height="11" rx="2.5" class="box proc flat"/>
-<text x="468.8" y="40" class="legend">JVM の中の処理</text>
-<rect x="590.4" y="30" width="16" height="11" rx="2.5" class="box mem flat"/>
-<text x="612.4" y="40" class="legend">メモリ領域</text>
-<rect x="700.4" y="30" width="16" height="11" rx="2.5" class="box outside flat"/>
-<text x="722.4" y="40" class="legend">JVM の外</text>
-<rect x="28" y="10" width="160" height="52" rx="8" class="box outside"/>
-<g class="sigil" transform="translate(36 18) scale(0.875)"><rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/><path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/></g>
-<text x="108.0" y="36" class="title outside">クラスファイル</text>
-<text x="108.0" y="58" class="sub outside">.class</text>
-<rect x="12" y="76" width="776" height="464" rx="14" class="jvm"/>
-<text x="146" y="100" class="region-label">JVM（HotSpot）</text>
-<rect x="262" y="88" width="180" height="194" rx="10" class="group"/>
-<text x="274" y="108" class="region-label">JIT のコンパイラ</text>
-<rect x="484" y="88" width="292" height="304" rx="10" class="cache"/>
-<text x="496" y="108" class="region-label">code cache（既定 240MB）</text>
-<rect x="496" y="120" width="268" height="180" rx="10" class="sub"/>
-<text x="508" y="140" class="region-label">nmethod（コンパイルしたコード）</text>
-<rect x="262" y="418" width="514" height="110" rx="10" class="group"/>
-<text x="274" y="438" class="region-label">実行中に読み書きするデータ</text>
-<line x1="108" y1="62" x2="108" y2="114" class="edge" marker-end="url(#ov-head)"/>
-<line x1="188" y1="149" x2="272" y2="149" class="edge" marker-end="url(#ov-head)"/>
-<line x1="188" y1="235" x2="272" y2="235" class="edge" marker-end="url(#ov-head)"/>
-<line x1="188" y1="330" x2="260" y2="330" class="edge" marker-end="url(#ov-head)"/>
-<line x1="262" y1="366" x2="190" y2="366" class="edge" marker-end="url(#ov-head)"/>
-<line x1="430" y1="166" x2="506" y2="166" class="edge" marker-end="url(#ov-head)"/>
-<line x1="430" y1="246" x2="506" y2="246" class="edge" marker-end="url(#ov-head)"/>
-<line x1="350" y1="390" x2="350" y2="450" class="edge" marker-end="url(#ov-head)"/>
-<line x1="690" y1="392" x2="690" y2="450" class="edge" marker-end="url(#ov-head)"/>
-<line x1="188" y1="483" x2="272" y2="483" class="edge" marker-end="url(#ov-head)"/>
-<rect x="28" y="118" width="160" height="272" rx="8" class="box mem"/>
-<g class="sigil" transform="translate(36 126) scale(0.875)"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></g>
-<text x="108.0" y="144" class="title mem">メタスペース</text>
-<text x="108.0" y="166" class="sub mem">バイトコード</text>
-<text x="108.0" y="188" class="sub mem">クラスの情報</text>
-<text x="108.0" y="210" class="sub mem">プロファイル</text>
-<rect x="274" y="118" width="156" height="62" rx="8" class="box proc"/>
-<g class="sigil" transform="translate(282 126) scale(0.875)"><path d="M6 3 3 8l3 5M10 3l3 5-3 5"/></g>
-<text x="352.0" y="144" class="title proc">C1</text>
-<text x="352.0" y="166" class="sub proc">短い時間でコンパイル</text>
-<rect x="274" y="204" width="156" height="62" rx="8" class="box proc"/>
-<g class="sigil" transform="translate(282 212) scale(0.875)"><path d="M6 3 3 8l3 5M10 3l3 5-3 5"/></g>
-<text x="352.0" y="230" class="title proc">C2</text>
-<text x="352.0" y="252" class="sub proc">時間をかけて最適化</text>
-<rect x="262" y="306" width="188" height="84" rx="8" class="box proc"/>
-<g class="sigil" transform="translate(270 314) scale(0.875)"><path d="M6 3 3 8l3 5M10 3l3 5-3 5"/></g>
-<text x="356.0" y="332" class="title proc">インタプリタ</text>
-<text x="356.0" y="354" class="sub proc">1命令ずつ実行</text>
-<text x="356.0" y="376" class="sub proc">回数とプロファイルを記録</text>
-<rect x="508" y="150" width="244" height="62" rx="8" class="box mem"/>
-<g class="sigil" transform="translate(516 158) scale(0.875)"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></g>
-<text x="630.0" y="176" class="title mem">profiled（約117MB）</text>
-<text x="630.0" y="198" class="sub mem">C1 のコード（tier 2・3）</text>
-<rect x="508" y="226" width="244" height="62" rx="8" class="box mem"/>
-<g class="sigil" transform="translate(516 234) scale(0.875)"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></g>
-<text x="630.0" y="252" class="title mem">non-profiled（約117MB）</text>
-<text x="630.0" y="274" class="sub mem">C1（tier 1）・C2（tier 4）</text>
-<rect x="496" y="316" width="268" height="62" rx="8" class="box mem"/>
-<g class="sigil" transform="translate(504 324) scale(0.875)"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></g>
-<text x="630.0" y="342" class="title mem">non-nmethods（約5.6MB）</text>
-<text x="630.0" y="364" class="sub mem">インタプリタなど JVM 自身のコード</text>
-<rect x="274" y="452" width="236" height="62" rx="8" class="box mem"/>
-<g class="sigil" transform="translate(282 460) scale(0.875)"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></g>
-<text x="392.0" y="478" class="title mem">ヒープ</text>
-<text x="392.0" y="500" class="sub mem">new で作ったオブジェクト</text>
-<rect x="526" y="452" width="238" height="62" rx="8" class="box mem"/>
-<g class="sigil" transform="translate(534 460) scale(0.875)"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></g>
-<text x="645.0" y="478" class="title mem">スタック</text>
-<text x="645.0" y="500" class="sub mem">メソッドごとのフレーム</text>
-<rect x="28" y="452" width="160" height="62" rx="8" class="box proc"/>
-<g class="sigil" transform="translate(36 460) scale(0.875)"><path d="M6 3 3 8l3 5M10 3l3 5-3 5"/></g>
-<text x="108.0" y="478" class="title proc">GC</text>
-<text x="108.0" y="500" class="sub proc">使われないものを回収</text>
-<rect x="203.0" y="356" width="44.0" height="20" rx="4" class="pill"/>
-<text x="225" y="371" class="pill-text">記録</text>
-<rect x="314.0" y="394" width="72.0" height="20" rx="4" class="pill"/>
-<text x="350" y="409" class="pill-text">読み書き</text>
-<rect x="598.0" y="395" width="156.0" height="20" rx="4" class="pill"/>
-<text x="676" y="410" class="pill-text">実行しながら読み書き</text>
-<rect x="209.0" y="473" width="44.0" height="20" rx="4" class="pill"/>
-<text x="231" y="488" class="pill-text">回収</text>
-<circle cx="124" cy="90" r="11" class="badge"/><text x="124" y="95" class="badge-text">1</text>
-<circle cx="225" cy="314" r="11" class="badge"/><text x="225" y="319" class="badge-text">2</text>
-<circle cx="225" cy="133" r="11" class="badge"/><text x="225" y="138" class="badge-text">3</text>
-<circle cx="463" cy="150" r="11" class="badge"/><text x="463" y="155" class="badge-text">3</text>
-<circle cx="225" cy="219" r="11" class="badge"/><text x="225" y="224" class="badge-text">4</text>
-<circle cx="463" cy="230" r="11" class="badge"/><text x="463" y="235" class="badge-text">4</text>
-<circle cx="772" cy="405" r="11" class="badge"/><text x="772" y="410" class="badge-text">5</text>
-</svg>
+<svg class="jvmflow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="28 -6 1282 474" role="img">
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(74, 74, 74)"/>
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(0, 112, 143)"/>
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(225, 29, 72)"/>
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="rgb(124, 58, 237)"/>
+          </marker>
+        </defs>
+        <!-- Background Grid -->
+        <!-- Boundaries (behind everything) -->
+        <rect x="254" y="6" width="1044" height="450" rx="12" stroke-width="1" fill="rgb(201, 221, 227)" stroke="rgb(201, 221, 227)"/>
+        <rect x="636" y="18" width="220" height="230" rx="12" stroke-width="1" fill="rgb(234, 241, 244)" stroke="rgb(167, 188, 196)"/>
+        <rect x="996" y="18" width="260" height="342" rx="12" stroke-width="1.5px" fill="rgb(238, 244, 246)" stroke="rgb(94, 122, 134)"/>
+        <rect x="1006" y="44" width="240" height="204" rx="8" stroke-width="1" fill="rgb(220, 232, 237)" stroke="rgb(122, 147, 156)" stroke-dasharray="4px, 3px"/>
+        <!-- Connection paths (before components for correct z-order) -->
+        <g>
+          <path d="M 170 196 L 316 196" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 406 228 L 406 284 Q 406 292 414 292 L 656 292" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 406 164 L 406 108 Q 406 100 414 100 L 656 100" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 496 196 L 656 196" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        </g>
+        <g>
+          <path d="M 836 100 L 1016 100" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <g>
+          <path d="M 836 196 L 1016 196" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <path d="M 1236 196 L 1269 196 Q 1277 196 1277 204 L 1277 396 Q 1277 404 1269 404 L 1236 404" stroke-width="1.8px" marker-end="url(#arrowhead-emphasis)" fill="none" stroke="rgb(0, 112, 143)"/>
+        <g>
+          <path d="M 746 324 L 746 340 Q 746 348 738 348 L 414 348 Q 406 348 406 356 L 406 372" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <g>
+          <path d="M 836 292 L 918 292 Q 926 292 926 300 L 926 396 Q 926 404 934 404 L 1016 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <g>
+          <path d="M 656 404 L 496 404" stroke-width="1.5px" marker-end="url(#arrowhead)" fill="none" stroke="rgb(74, 74, 74)"/>
+        </g>
+        <!-- Components -->
+        <g id="node-classfile">
+          <rect x="40" y="164" width="130" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="40" y="164" width="130" height="64" rx="8" stroke-width="1.25px" fill="rgb(255, 255, 255)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 46, 170)" fill="none" stroke="rgb(89, 89, 89)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text x="105" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(34, 34, 34)">クラスファイル</text>
+        <text x="105" y="210" font-size="9px" text-anchor="middle" fill="rgb(85, 85, 85)">.class</text>
+        </g>
+        <g id="node-metaspace">
+          <rect x="316" y="164" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="316" y="164" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 322, 170)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="406" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">メタスペース</text>
+        <text x="406" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">バイトコード・プロファイル</text>
+        </g>
+        <g id="node-c1">
+          <rect x="656" y="68" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="68" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 74)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="98" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">C1</text>
+        <text x="746" y="114" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">短い時間でコンパイル</text>
+        </g>
+        <g id="node-c2">
+          <rect x="656" y="164" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="164" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 170)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">C2</text>
+        <text x="746" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">プロファイルを使って最適化</text>
+        </g>
+        <g id="node-interpreter">
+          <rect x="656" y="260" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="260" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 266)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="290" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタ</text>
+        <text x="746" y="306" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">1命令ずつ実行・回数を記録</text>
+        </g>
+        <g id="node-profiled">
+          <rect x="1016" y="68" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="68" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 74)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="98" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">profiled（約117MB）</text>
+        <text x="1126" y="114" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">C1 のコード（tier 2・3）</text>
+        </g>
+        <g id="node-non-profiled">
+          <rect x="1016" y="164" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="164" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 170)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="194" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-profiled（約117MB）</text>
+        <text x="1126" y="210" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">C1（tier 1）と C2（tier 4）のコード</text>
+        </g>
+        <g id="node-non-nmethods">
+          <rect x="1016" y="276" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="276" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 282)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="306" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-nmethods（約5.6MB）</text>
+        <text x="1126" y="322" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタなど JVM 自身のコード</text>
+        </g>
+        <g id="node-gc">
+          <rect x="656" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="656" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(0, 112, 143)" stroke="rgb(0, 112, 143)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 662, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text x="746" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">GC</text>
+        <text x="746" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">ガベージコレクタ</text>
+        </g>
+        <g id="node-heap">
+          <rect x="316" y="372" width="180" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="316" y="372" width="180" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 322, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="406" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">ヒープ</text>
+        <text x="406" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">new で作ったオブジェクト</text>
+        </g>
+        <g id="node-stack">
+          <rect x="1016" y="372" width="220" height="64" rx="8" fill="rgb(255, 255, 255)"/>
+          <rect x="1016" y="372" width="220" height="64" rx="8" stroke-width="1.25px" fill="rgb(89, 89, 89)" stroke="rgb(89, 89, 89)"/>
+          <g transform="matrix(0.6875, 0, 0, 0.6875, 1022, 378)" fill="none" stroke="rgb(255, 255, 255)" stroke-width="1.35px" stroke-linecap="round" stroke-linejoin="round" opacity="0.76">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text x="1126" y="402" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">スタック</text>
+        <text x="1126" y="418" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">メソッドごとのフレーム</text>
+        </g>
+        <!-- Connection labels -->
+        <g>
+          <rect x="183" y="189" width="58" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="212" y="199" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">① 読み込む</text>
+        </g>
+        <g>
+          <rect x="535" y="285" width="82" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="295" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">② 1命令ずつ実行</text>
+        </g>
+        <g>
+          <rect x="542.2" y="93" width="67.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="103" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">③ コンパイル</text>
+        </g>
+        <g>
+          <rect x="527.8" y="176" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="186" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">④ コンパイルし直す</text>
+        </g>
+        <g>
+          <rect x="868.2" y="80" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="90" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
+        </g>
+        <g>
+          <rect x="868.2" y="176" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="186" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
+        </g>
+        <g>
+          <rect x="1120.2" y="255" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="1178" y="265" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)">⑤ 次の呼び出しから実行</text>
+        </g>
+        <g>
+          <rect x="518.2" y="328" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="338" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">オブジェクトを読み書き</text>
+        </g>
+        <g>
+          <rect x="877.8" y="328" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="338" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">フレームを読み書き</text>
+        </g>
+        <g>
+          <rect x="513.4" y="384" width="125.2" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="576" y="394" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">不要なオブジェクトを回収</text>
+        </g>
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+        <g transform="matrix(1, 0, 0, 1, 0, -26)">
+          <rect x="258" y="48" width="85.6" height="16" rx="3" fill="rgb(201, 221, 227)" stroke-width="0.8px"/>
+          <text x="262" y="61" font-size="12px" font-weight="650" fill="rgb(46, 58, 66)">JVM（HotSpot）</text>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 0, -26)">
+          <rect x="640" y="48" width="96.4" height="16" rx="3" fill="rgb(234, 241, 244)" stroke-width="0.8px"/>
+          <text x="644" y="61" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">JIT のコンパイラ</text>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 0, -8)">
+          <rect x="1000" y="30" width="139.6" height="16" rx="3" fill="rgb(238, 244, 246)" stroke-width="0.8px"/>
+          <text x="1004" y="43" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">code cache（既定 240MB）</text>
+        </g>
+        <g>
+          <rect x="1010" y="48" width="209.8" height="16" rx="3" fill="rgb(220, 232, 237)" stroke-width="0.8px"/>
+          <text x="1014" y="61" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">nmethod（JIT がコンパイルしたコード）</text>
+        </g>
+        <!-- Legend -->
+      <g><text x="40" y="35" font-size="12px" font-weight="650" fill="rgb(34, 34, 34)">凡例</text><rect x="40" y="46" width="16" height="10" rx="2.5" fill="#00708F" stroke="#00708F" stroke-width="1"/><text x="62" y="55" font-size="10px" fill="rgb(85, 85, 85)">JVM の中の処理</text><rect x="40" y="64" width="16" height="10" rx="2.5" fill="#595959" stroke="#595959" stroke-width="1"/><text x="62" y="73" font-size="10px" fill="rgb(85, 85, 85)">メモリ領域</text><rect x="40" y="82" width="16" height="10" rx="2.5" fill="#FFFFFF" stroke="#595959" stroke-width="1"/><text x="62" y="91" font-size="10px" fill="rgb(85, 85, 85)">JVM の外</text></g></svg>
 </figure>
 <style>
-  .jvmflow {
-    --bg: #ffffff; --jvm: #c9dde3; --group: #eaf1f4; --group-line: #a7bcc4;
-    --cache: #eef4f6; --cache-line: #5e7a86; --sub: #dce8ed; --sub-line: #7a939c;
-    --proc: #00708f; --mem: #595959; --outside: #ffffff; --outside-line: #595959;
-    --ink: #222222; --label: #2e3a42; --line: #4a4a4a;
-    --pill: #ffffff; --pill-line: #cbd5e1; --pill-ink: #4a4a4a; --badge: #2e3a42; --badge-ink: #ffffff;
-    --shadow: drop-shadow(0 1px 1px rgba(17, 24, 39, 0.05)) drop-shadow(0 6px 12px rgba(17, 24, 39, 0.06));
-    /* Below 600px the figure keeps its size and the embed scrolls sideways */
-    margin: 0; padding: 8px 4px; min-width: 600px; box-sizing: border-box; background: var(--bg);
-    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  }
-  [data-theme="dark"] .jvmflow {
-    --bg: #0f1419; --jvm: #1b2a31; --group: #22343c; --group-line: #3e5a66;
-    --cache: #20323a; --cache-line: #6f8f9c; --sub: #273d47; --sub-line: #5f7f8c;
-    --proc: #00708f; --mem: #5a5f66; --outside: #1b2229; --outside-line: #8b949e;
-    --ink: #e6e8eb; --label: #c9d6dd; --line: #a9b4bd;
-    --pill: #0f172a; --pill-line: #334155; --pill-ink: #cbd5e1; --badge: #e6edf1; --badge-ink: #0f1419;
-    --shadow: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
-  }
-  .jvmflow svg { display: block; width: 100%; height: auto; }
-  .jvmflow text { text-anchor: middle; font-size: 14px; }
-  .jvmflow .jvm { fill: var(--jvm); }
-  .jvmflow .group { fill: var(--group); stroke: var(--group-line); }
-  .jvmflow .cache { fill: var(--cache); stroke: var(--cache-line); stroke-width: 1.5; }
-  .jvmflow .sub { fill: var(--sub); stroke: var(--sub-line); stroke-dasharray: 4 3; }
-  .jvmflow .region-label { text-anchor: start; fill: var(--label); font-weight: 700; }
-  .jvmflow .box { stroke-width: 1.25; filter: var(--shadow); }
-  .jvmflow .box.flat { filter: none; stroke-width: 1; }
-  .jvmflow .box.proc { fill: var(--proc); stroke: var(--proc); }
-  .jvmflow .box.mem { fill: var(--mem); stroke: var(--mem); }
-  .jvmflow .box.outside { fill: var(--outside); stroke: var(--outside-line); }
-  .jvmflow .title { font-size: 15px; font-weight: 600; }
-  .jvmflow .title.proc, .jvmflow .title.mem, .jvmflow .sub.proc, .jvmflow .sub.mem { fill: #ffffff; }
-  .jvmflow .title.outside, .jvmflow .sub.outside { fill: var(--ink); }
-  .jvmflow text.sub { fill: #ffffff; stroke: none; }
-  .jvmflow text.sub.outside { fill: var(--ink); }
-  .jvmflow .sigil { fill: none; stroke: #ffffff; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; opacity: 0.76; }
-  .jvmflow .sigil:has(+ .title.outside) { stroke: var(--outside-line); }
-  .jvmflow .edge { stroke: var(--line); stroke-width: 1.5; }
-  .jvmflow .head { fill: var(--line); }
-  .jvmflow .pill { fill: var(--pill); stroke: var(--pill-line); stroke-width: 0.75; }
-  .jvmflow .pill-text { fill: var(--pill-ink); }
-  .jvmflow .badge { fill: var(--badge); }
-  .jvmflow .badge-text { fill: var(--badge-ink); font-size: 14px; font-weight: 700; }
-  .jvmflow .legend { text-anchor: start; fill: var(--ink); }
+  .jvmflow { margin: 0; padding: 8px 4px; min-width: 1290px; box-sizing: border-box; background: #ffffff; }
+  .jvmflow > svg { display: block; width: 100%; height: auto; }
 </style>

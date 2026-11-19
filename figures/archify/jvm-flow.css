@@ -1,0 +1,24 @@
+/*
+ * Colors and frame names of the overview of chapter 2, after the Archify diagram in the background material (fig1).
+ * Load after archify-palette.css with archify-export.mjs --css. Archify keeps only rules that start with svg.
+ */
+svg rect[data-composition-frame-label^="JVM"] { fill: #C9DDE3 !important; stroke: #C9DDE3 !important; }
+svg rect[data-composition-frame-label^="JIT"] { fill: #EAF1F4 !important; stroke: #A7BCC4 !important; }
+svg rect[data-composition-frame-label^="code cache"] { fill: #EEF4F6 !important; stroke: #5E7A86 !important; stroke-width: 1.5px !important; }
+svg rect.c-security-group { fill: #DCE8ED !important; stroke: #7A939C !important; stroke-dasharray: 4 3 !important; }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="JVM"] rect { fill: #C9DDE3 !important; }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="code cache"] rect { fill: #EEF4F6 !important; }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-kind="security-group"] rect { fill: #DCE8ED !important; }
+
+/*
+ * Frame names. Archify puts each name just above the topmost box inside, so the outer JVM name ended up below the
+ * code cache name, and the code cache name sat on the nmethod border. Here the two column frames start at the same
+ * height (18), and the JVM name and both column names share one baseline (35), 12px under the JVM frame's top (6).
+ * The nmethod name stays on the next row.
+ */
+svg rect[data-composition-frame-label^="JIT"] { y: 18px; height: 230px; }
+svg rect[data-composition-frame-label^="code cache"] { y: 18px; height: 342px; }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="JVM"] { transform: translateY(-26px); }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="JIT"] { transform: translateY(-26px); }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="code cache"] { transform: translateY(-8px); }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="JVM"] text { font-size: 12px !important; font-weight: 650 !important; }
