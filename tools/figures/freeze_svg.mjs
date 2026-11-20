@@ -208,7 +208,8 @@ const FREEZE = `(() => {
     legendAt = { x: boxes[legendX].x, y: q.y };
   }
 
-  // Inherited properties are written only where they differ from the parent, so the root carries the font once.
+  // Inherited properties are written only where they differ from the parent. The root keeps no font, so the text
+  // uses the font of the page it is embedded in.
   // Every value is read first and written afterwards: removing a parent's class or data attributes changes which
   // rules match its children. Rectangle geometry and transforms set by CSS are kept as attributes.
   const props = ['fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-dasharray', 'stroke-linecap', 'stroke-linejoin',
@@ -217,7 +218,6 @@ const FREEZE = `(() => {
     'dominant-baseline': 'auto', 'stroke-linecap': 'butt', 'stroke-linejoin': 'miter' };
   const inherited = new Set(['fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-dasharray', 'stroke-linecap', 'stroke-linejoin',
     'stroke-opacity', 'font-family', 'font-size', 'font-weight', 'text-anchor', 'dominant-baseline', 'letter-spacing']);
-  const rootFont = getComputedStyle(svg).getPropertyValue('font-family');
   const plan = [];
   const removed = [];
   for (const el of svg.querySelectorAll('*')) {
@@ -250,7 +250,6 @@ const FREEZE = `(() => {
     for (const [p, v] of Object.entries(values)) el.setAttribute(p, v);
     if (filter && filter !== 'none') el.setAttribute('style', 'filter:' + filter);
   }
-  svg.setAttribute('font-family', rootFont);
   for (const el of removed) el.remove();
   for (const el of svg.querySelectorAll('style, title, desc, metadata, pattern')) el.remove();
   for (const el of svg.querySelectorAll('rect')) if (/url\\(["']?#grid["']?\\)/.test(el.getAttribute('fill') || '')) el.remove();

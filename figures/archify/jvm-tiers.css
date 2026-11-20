@@ -1,0 +1,7 @@
+/*
+ * Frame positions of the tier figure. Load after archify-palette.css with archify-export.mjs --css.
+ * The C2 frame holds only tier 4, so Archify sizes it to one row. It is stretched to the height of the C1 frame,
+ * and its name moved to the same baseline (53).
+ */
+svg rect[data-composition-frame-label^="C2"] { y: 36px; height: 268px; }
+svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="C2"] { transform: translateY(-88px); }

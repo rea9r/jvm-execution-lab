@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "メソッドの tier の移り変わり",
+    "output": "build/archify/jvm-tiers.html",
+    "locale": "ja",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "hidden"
+    },
+    "translations": {
+      "legend.title": "凡例"
+    }
+  },
+  "components": [
+    {
+      "id": "t0",
+      "type": "backend",
+      "label": "tier 0",
+      "sublabel": "インタプリタで実行",
+      "pos": [
+        40,
+        148
+      ],
+      "size": [
+        160,
+        48
+      ]
+    },
+    {
+      "id": "t2",
+      "type": "database",
+      "icon": "backend",
+      "label": "tier 2",
+      "sublabel": "C1・回数だけ数える",
+      "pos": [
+        360,
+        60
+      ],
+      "size": [
+        200,
+        48
+      ]
+    },
+    {
+      "id": "t3",
+      "type": "database",
+      "icon": "backend",
+      "label": "tier 3",
+      "sublabel": "C1・プロファイルをすべて取る",
+      "pos": [
+        360,
+        148
+      ],
+      "size": [
+        200,
+        48
+      ]
+    },
+    {
+      "id": "t1",
+      "type": "database",
+      "icon": "backend",
+      "label": "tier 1",
+      "sublabel": "C1・プロファイルを取らない",
+      "pos": [
+        360,
+        236
+      ],
+      "size": [
+        200,
+        48
+      ]
+    },
+    {
+      "id": "t4",
+      "type": "database",
+      "icon": "backend",
+      "label": "tier 4",
+      "sublabel": "C2・プロファイルを使って最適化",
+      "pos": [
+        730,
+        148
+      ],
+      "size": [
+        200,
+        48
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "C1 のコード",
+      "wraps": [
+        "t2",
+        "t3",
+        "t1"
+      ],
+      "pad": 20
+    },
+    {
+      "kind": "region",
+      "label": "C2 のコード",
+      "wraps": [
+        "t4"
+      ],
+      "pad": 20
+    }
+  ],
+  "connections": [
+    {
+      "id": "t0-t3",
+      "from": "t0",
+      "to": "t3",
+      "label": "回数がしきい値を超える",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        270,
+        175
+      ]
+    },
+    {
+      "id": "t3-t4",
+      "from": "t3",
+      "to": "t4",
+      "label": "プロファイルが集まる",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "t0-t2",
+      "from": "t0",
+      "to": "t2",
+      "label": "C2 が混んでいる",
+      "fromSide": "top",
+      "toSide": "left",
+      "labelAt": [
+        270,
+        87
+      ]
+    },
+    {
+      "id": "t2-t3",
+      "from": "t2",
+      "to": "t3",
+      "label": "C2 の待ちが減る",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        460,
+        131
+      ]
+    },
+    {
+      "id": "t0-t1",
+      "from": "t0",
+      "to": "t1",
+      "label": "単純なメソッド",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "labelAt": [
+        270,
+        263
+      ]
+    }
+  ]
+}

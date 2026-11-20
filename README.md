@@ -159,8 +159,8 @@ In `shift`, both C2 versions of `total` are made not entrant with the reason `un
 | `src-copies/` | `CartWorkload`, compiled into `build/copies/` with `Cart`, outside the class path, for the class loader copies |
 | `scripts/` | Build and experiment scripts. `lib.sh` holds the image, container and heap settings |
 | `tools/` | Reports on the results |
-| `tools/figures/` | Scripts that draw the charts, and turn the Archify overview into a static SVG for the article |
-| `figures/` | The figures embedded in the article. `figures/archify/` holds the source of the overview |
+| `tools/figures/` | Scripts that draw the figures and charts, and turn the Archify diagrams into static SVGs for the article |
+| `figures/` | The figures embedded in the article. `figures/archify/` holds the sources of the Archify diagrams |
 | `results/` | The recorded results that the numbers above come from |
 
 ## License
