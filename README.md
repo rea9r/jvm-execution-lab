@@ -50,6 +50,7 @@ scripts/warmup.sh
 scripts/inlining.sh
 scripts/codecache.sh
 scripts/taxed.sh
+scripts/tips.sh
 ```
 
 Each script runs one experiment inside the container and replaces `results/<experiment>/`. Experiments run 5 times by default; set `RUNS` to change it (`RUNS=3 scripts/codecache.sh`).
@@ -151,12 +152,30 @@ All three runs gave nearly the same numbers.
 
 In `shift`, both C2 versions of `total` are made not entrant with the reason `uncommon trap` in the 1,001st and 1,002nd calls, and `total` is compiled again at tier 3 and tier 4. The order of these events was the same in all 5 runs, but the time per call afterwards was not: about 93 µs in 4 runs and about 49 µs in 1. This is not explained yet.
 
+### Startup, the 8,000-byte limit and logging
+
+`scripts/tips.sh` backs the practical tips at the end of the article. It runs `Run split 500 10000` five times each with the class directory, with a JAR, with a JAR and an AOT cache (`-XX:AOTCacheOutput` / `-XX:AOTCache`, JDK 25), and with a JAR and C1 only (`-XX:TieredStopAtLevel=1`), interleaved. `python3 tools/tips_report.py results/tips` prints the table (median of 5 runs, µs).
+
+| Run | 1st call | 2nd-6th | 101st-500th | Sum of 1st-100th |
+| --- | ---: | ---: | ---: | ---: |
+| Class directory | 537.0 | 213.8 | 5.9 | 4.56 ms |
+| JAR | 445.3 | 221.5 | 6.2 | 4.62 ms |
+| JAR + AOT cache | 207.8 | 10.6 | 6.1 | 1.19 ms |
+| JAR + C1 only | 358.8 | 206.6 | 7.2 | 2.27 ms |
+| JAR, log written to the shared folder | 1003.8 | 645.6 | 6.0 | 7.63 ms |
+| The same with `-Xlog:async` | 452.5 | 201.5 | 6.0 | 4.52 ms |
+
+- The AOT cache cannot be made with a non-empty directory on the class path: the run ends with exit code 1 and no cache, and the reason shows only with `-Xlog:aot` (`results/tips/aot-dir-error.log`). This is why the other runs use a JAR.
+- Writing the compilation log into the folder shared with the host (`-v`) delayed the first compilations of `subtotal` and `withTax` in 4 of 5 JAR runs, and they were compiled at tier 2 instead of tier 3. `-Xlog:async` removes the delay. Runs from the class directory were not affected; why is not known. The script therefore writes the logs for measurement to `/tmp` and copies them afterwards.
+- `tools/huge_source.py` writes methods of exactly 8,000 and 8,004 bytes of bytecode. Called 20,000 times, the 8,000-byte one is compiled at tier 3 and 4 (8.0 ms); the 8,004-byte one is never compiled (66.1 ms) unless `-XX:-DontCompileHugeMethods` is given (8.0 ms).
+
 ## Layout
 
 | Path | Contents |
 | --- | --- |
 | `src/` | `Cart`, the variants, `Run` (calls `total` and records each call) and `Copies` (code cache phases) |
 | `src-copies/` | `CartWorkload`, compiled into `build/copies/` with `Cart`, outside the class path, for the class loader copies |
+| `src-tips/` | `HugeCall`, which calls the methods written by `tools/huge_source.py` |
 | `scripts/` | Build and experiment scripts. `lib.sh` holds the image, container and heap settings |
 | `tools/` | Reports on the results |
 | `tools/figures/` | Scripts that draw the figures and charts, and turn the Archify diagrams into static SVGs for the article |
