@@ -126,9 +126,9 @@ def huge(directory):
         assert len(per_run) == 5, key
         return statistics.median(per_run) / 1000
 
-    rows = [("8,000 バイト", ms("Huge8000"), "tier 3・4", BLUE),
-            ("8,004 バイト", ms("Huge8004"), "コンパイルされない", ORANGE),
-            ("8,004 バイト（オプションあり）", ms("Huge8004-forced"), "tier 3・4", BLUE)]
+    rows = [("8,000バイト", ms("Huge8000"), "tier 3・4", BLUE),
+            ("8,004バイト", ms("Huge8004"), "コンパイルされない", ORANGE),
+            ("8,004バイト（オプションあり）", ms("Huge8004-forced"), "tier 3・4", BLUE)]
     H, top, row_h, left, right = 210, 24, 44, 228, 520
     t_max = 70
     assert max(v for _, v, _, _ in rows) <= t_max
