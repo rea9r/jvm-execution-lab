@@ -104,7 +104,7 @@
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text x="1126" y="90" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">profiled（約117MB）</text>
+          <text x="1126" y="90" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">profiled</text>
         <text x="1126" y="106" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">C1 のコード（tier 2・3）</text>
         </g>
         <g id="node-non-profiled">
@@ -114,7 +114,7 @@
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text x="1126" y="162" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-profiled（約117MB）</text>
+          <text x="1126" y="162" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-profiled</text>
         <text x="1126" y="178" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">C1（tier 1）と C2（tier 4）のコード</text>
         </g>
         <g id="node-non-nmethods">
@@ -124,7 +124,7 @@
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text x="1126" y="258" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-nmethods（約5.6MB）</text>
+          <text x="1126" y="258" font-size="11px" font-weight="600" text-anchor="middle" fill="rgb(255, 255, 255)">non-nmethods</text>
         <text x="1126" y="274" font-size="9px" text-anchor="middle" fill="rgb(255, 255, 255)">インタプリタなど JVM 自身のコード</text>
         </g>
         <g id="node-gc">
@@ -207,8 +207,8 @@
           <text x="644" y="60.01935583870968" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">JIT のコンパイラ</text>
         </g>
         <g transform="matrix(1, 0, 0, 1, 0, -8)">
-          <rect x="1000" y="28" width="139.879" height="17" rx="3" fill="rgb(238, 244, 246)" stroke-width="0.8px"/>
-          <text x="1004" y="41.01935583870968" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">code cache（既定 240MB）</text>
+          <rect x="1000" y="28" width="64.1161" height="17" rx="3" fill="rgb(238, 244, 246)" stroke-width="0.8px"/>
+          <text x="1004" y="41.01935583870968" font-size="10px" font-weight="600" fill="rgb(46, 58, 66)">code cache</text>
         </g>
         <g>
           <rect x="1010" y="47" width="210.23" height="17" rx="3" fill="rgb(220, 232, 237)" stroke-width="0.8px"/>

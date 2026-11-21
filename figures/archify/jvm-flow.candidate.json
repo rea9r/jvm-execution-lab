@@ -98,7 +98,7 @@
     {
       "id": "profiled",
       "type": "database",
-      "label": "profiled（約117MB）",
+      "label": "profiled",
       "sublabel": "C1 のコード（tier 2・3）",
       "pos": [
         1016,
@@ -112,7 +112,7 @@
     {
       "id": "non-profiled",
       "type": "database",
-      "label": "non-profiled（約117MB）",
+      "label": "non-profiled",
       "sublabel": "C1（tier 1）と C2（tier 4）のコード",
       "pos": [
         1016,
@@ -126,7 +126,7 @@
     {
       "id": "non-nmethods",
       "type": "database",
-      "label": "non-nmethods（約5.6MB）",
+      "label": "non-nmethods",
       "sublabel": "インタプリタなど JVM 自身のコード",
       "pos": [
         1016,
@@ -209,7 +209,7 @@
     },
     {
       "kind": "region",
-      "label": "code cache（既定 240MB）",
+      "label": "code cache",
       "wraps": [
         "profiled",
         "non-profiled",
@@ -301,8 +301,8 @@
       "fromSide": "right",
       "toSide": "right",
       "labelAt": [
-        1178,
-        225
+        1300,
+        255
       ],
       "via": [
         [
