@@ -173,8 +173,12 @@ In `shift`, both C2 versions of `total` are made not entrant with the reason `un
 | The same with `-Xlog:async` | 452.5 | 201.5 | 6.0 | 4.52 ms |
 
 - The AOT cache cannot be made with a non-empty directory on the class path: the run ends with exit code 1 and no cache, and the reason shows only with `-Xlog:aot` (`results/tips/aot-dir-error.log`). This is why the other runs use a JAR.
-- Writing the compilation log into the folder shared with the host (`-v`) delayed the first compilations of `subtotal` and `withTax` in 4 of 5 JAR runs, and they were compiled at tier 2 instead of tier 3. `-Xlog:async` removes the delay. Runs from the class directory were not slowed in the 2nd to 6th calls, but their first call was: 780 µs with the log in the shared folder (the warmup runs before they were moved to `/tmp`, in the git history) against 502 µs with the log in `/tmp`. The script therefore writes the logs for measurement to `/tmp` and copies them afterwards.
+- Writing the compilation log into the folder shared with the host (`-v`) delayed the first compilations of `subtotal` and `withTax` in 4 of 5 JAR runs, and they were compiled at tier 2 instead of tier 3. `-Xlog:async` removes the delay. Runs from the class directory were barely slowed in the 2nd to 6th calls, but their first call was: `scripts/logdest-dir.sh` runs them interleaved and gives 494 µs with the log in `/tmp` against 660 µs in the shared folder (medians of 5; 218 µs against 232 µs for the 2nd to 6th calls). The script therefore writes the logs for measurement to `/tmp` and copies them afterwards.
 - `tools/huge_source.py` writes methods of exactly 8,000 and 8,004 bytes of bytecode. Called 20,000 times, the 8,000-byte one is compiled at tier 3 and 4 (8.0 ms); the 8,004-byte one is never compiled (66.1 ms) unless `-XX:-DontCompileHugeMethods` is given (8.0 ms).
+
+### JIT events in JFR
+
+`scripts/jfr.sh` records the same warmup run (from a JAR) with JFR and counts the events with `jfr summary` into `results/jfr/counts.tsv`. With the default settings, `jdk.Compilation` has no events in all 5 runs, because its threshold is 1 s; `jdk.Deoptimization` has 7 to 12. With `jdk.Compilation#threshold=0ms,jdk.CompilerInlining#enabled=true`, the medians are 72 `jdk.Compilation` and 230 `jdk.CompilerInlining` events.
 
 ### GC, JIT threads and heap in a container
 

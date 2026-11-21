@@ -1,0 +1,11 @@
+settings	run	jdk.Compilation	jdk.CompilerInlining	jdk.Deoptimization
+default	1	0	0	12
+lowered	1	73	243	12
+default	2	0	0	10
+lowered	2	60	237	10
+default	3	0	0	11
+lowered	3	72	229	12
+default	4	0	0	11
+lowered	4	74	230	10
+default	5	0	0	10
+lowered	5	70	229	7
