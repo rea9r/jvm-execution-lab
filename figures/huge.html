@@ -1,0 +1,40 @@
+<figure class="huge">
+<svg viewBox="0 0 700 210" role="img" aria-label="バイトコードが8,000バイトと8,004バイトのメソッドを2万回呼んだ時間">
+<line x1="228.0" x2="228.0" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="228.0" y="174.0" text-anchor="middle" class="tick">0</text>
+<line x1="269.7" x2="269.7" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="269.7" y="174.0" text-anchor="middle" class="tick">10</text>
+<line x1="311.4" x2="311.4" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="311.4" y="174.0" text-anchor="middle" class="tick">20</text>
+<line x1="353.1" x2="353.1" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="353.1" y="174.0" text-anchor="middle" class="tick">30</text>
+<line x1="394.9" x2="394.9" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="394.9" y="174.0" text-anchor="middle" class="tick">40</text>
+<line x1="436.6" x2="436.6" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="436.6" y="174.0" text-anchor="middle" class="tick">50</text>
+<line x1="478.3" x2="478.3" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="478.3" y="174.0" text-anchor="middle" class="tick">60</text>
+<line x1="520.0" x2="520.0" y1="18" y2="156" stroke="#2c3038" stroke-width="1"/>
+<text x="520.0" y="174.0" text-anchor="middle" class="tick">70</text>
+<text x="216.0" y="50.0" text-anchor="end" class="row">8,000 バイト</text>
+<rect x="228" y="37.0" width="33.4" height="18" rx="3" fill="#3987e5"/>
+<text x="269.4" y="50.0" text-anchor="start" class="value">8.0ms（tier 3・4）</text>
+<text x="216.0" y="94.0" text-anchor="end" class="row">8,004 バイト</text>
+<rect x="228" y="81.0" width="275.9" height="18" rx="3" fill="#d95926"/>
+<text x="511.9" y="94.0" text-anchor="start" class="value">66.1ms（コンパイルされない）</text>
+<text x="216.0" y="138.0" text-anchor="end" class="row">8,004 バイト（オプションあり）</text>
+<rect x="228" y="125.0" width="33.5" height="18" rx="3" fill="#3987e5"/>
+<text x="269.5" y="138.0" text-anchor="start" class="value">8.0ms（tier 3・4）</text>
+<text x="374.0" y="200.0" text-anchor="middle" class="axis">2万回の時間（ms）</text>
+</svg>
+</figure>
+<style>
+  /* Below 600px the chart keeps its size and the embed scrolls sideways, so that the 12px labels stay at 10px or more */
+  .huge { margin: 0; padding: 8px 4px; min-width: 600px; box-sizing: border-box; background: #181b1f;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  .huge svg { display: block; width: 100%; height: auto; }
+  .huge text { font-size: 12px; fill: #9aa0a8; }
+  .huge .legend, .huge .value, .huge .row { fill: #e6e8eb; }
+  .huge .value { font-weight: 600; }
+  .huge .axis { font-size: 13px; }
+</style>
