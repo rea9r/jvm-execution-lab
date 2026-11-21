@@ -158,44 +158,44 @@
         </g>
         <!-- Connection labels -->
         <g>
-          <rect x="182.32" y="157" width="59.3594" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="219.5" y="167" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)"> 読み込む</text><circle cx="192.3203125" cy="164" r="7" fill="rgb(0, 112, 143)"/><text x="192.3203125" y="167.2" font-size="9px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">1</text>
+          <rect x="177.773" y="156" width="68.4531" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="221" y="167.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)"> 読み込む</text><circle cx="188.7734375" cy="164" r="8" fill="rgb(0, 112, 143)"/><text x="188.7734375" y="167.6" font-size="10px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">1</text>
         </g>
         <g>
-          <rect x="535.742" y="333" width="80.5156" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="583.5" y="343" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)"> 1命令ずつ実行</text><circle cx="545.7421875" cy="340" r="7" fill="rgb(0, 112, 143)"/><text x="545.7421875" y="343.2" font-size="9px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">2</text>
+          <rect x="528.555" y="332" width="94.8906" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="585" y="343.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)"> 1命令ずつ実行</text><circle cx="539.5546875" cy="340" r="8" fill="rgb(0, 112, 143)"/><text x="539.5546875" y="343.6" font-size="10px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">2</text>
         </g>
         <g>
-          <rect x="542.5" y="85" width="67" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="583.5" y="95" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)"> コンパイル</text><circle cx="552.5" cy="92" r="7" fill="rgb(0, 112, 143)"/><text x="552.5" y="95.2" font-size="9px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">3</text>
+          <rect x="537" y="84" width="78" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="585" y="95.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)"> コンパイル</text><circle cx="548" cy="92" r="8" fill="rgb(0, 112, 143)"/><text x="548" y="95.6" font-size="10px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">3</text>
         </g>
         <g>
-          <rect x="530.406" y="144" width="91.1875" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="583.5" y="154" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)"> コンパイルし直す</text><circle cx="540.40625" cy="151" r="7" fill="rgb(0, 112, 143)"/><text x="540.40625" y="154.2" font-size="9px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">4</text>
+          <rect x="521.883" y="143" width="108.234" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="585" y="154.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)"> コンパイルし直す</text><circle cx="532.8828125" cy="151" r="8" fill="rgb(0, 112, 143)"/><text x="532.8828125" y="154.6" font-size="10px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">4</text>
         </g>
         <g>
-          <rect x="868.2" y="72" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="926" y="82" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
+          <rect x="865.773" y="71" width="120.453" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="82.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
         </g>
         <g>
-          <rect x="868.2" y="144" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="926" y="154" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
+          <rect x="865.773" y="143" width="120.453" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="154.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">ネイティブコードを保存</text>
         </g>
         <g>
-          <rect x="1124.05" y="215" width="107.891" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="1185.5" y="225" font-size="8px" text-anchor="middle" fill="rgb(0, 112, 143)"> 次の呼び出しから実行</text><circle cx="1134.0546875" cy="222" r="7" fill="rgb(0, 112, 143)"/><text x="1134.0546875" y="225.2" font-size="9px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">5</text>
+          <rect x="1113.45" y="214" width="129.109" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="1187" y="225.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)"> 次の呼び出しから実行</text><circle cx="1124.4453125" cy="222" r="8" fill="rgb(0, 112, 143)"/><text x="1124.4453125" y="225.6" font-size="10px" font-weight="700" fill="rgb(255, 255, 255)" text-anchor="middle">5</text>
         </g>
         <g>
-          <rect x="868.2" y="373" width="115.6" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="926" y="383" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">オブジェクトを読み書き</text>
+          <rect x="865.773" y="372" width="120.453" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="383.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">オブジェクトを読み書き</text>
         </g>
         <g>
-          <rect x="877.8" y="320" width="96.4" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="926" y="330" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">フレームを読み書き</text>
+          <rect x="875.773" y="319" width="100.453" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="330.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">フレームを読み書き</text>
         </g>
         <g>
-          <rect x="863.4" y="400" width="125.2" height="14" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="926" y="410" font-size="8px" text-anchor="middle" fill="rgb(74, 74, 74)">不要なオブジェクトを回収</text>
+          <rect x="860.555" y="399" width="130.891" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="926" y="410.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">不要なオブジェクトを回収</text>
         </g>
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
         <g transform="matrix(1, 0, 0, 1, 0, -26)">

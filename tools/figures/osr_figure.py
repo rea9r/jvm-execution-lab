@@ -2,7 +2,7 @@
 at the head of its loop, and the next call that enters the normal compiled code at the head of the method.
 
 Colors, text sizes and the lane faces follow the Archify overview (teal for the interpreter, dark gray for compiled
-code, 11px names, 10px frame names, 8px pills). The fonts are left to the page.
+code, 11px names, 10px frame names and pills). The fonts are left to the page.
 
 usage: python3 tools/figures/osr_figure.py > figures/osr.svg
 """
@@ -37,9 +37,9 @@ def text(x, y, s, size, fill, weight=None, anchor="start"):
 
 def pill(x, cy, s, ink):
     """A label pill whose left edge is at x"""
-    w = width(s, 8) + 10
-    return (f'<rect x="{x}" y="{cy - 7}" width="{w:.1f}" height="14" rx="3" fill="#FFFFFF" stroke="{PILL_LINE}" stroke-width="0.75"/>'
-            + text(x + w / 2, cy + 3, s, 8, ink, anchor="middle"))
+    w = width(s, 10) + 10
+    return (f'<rect x="{x}" y="{cy - 8}" width="{w:.1f}" height="16" rx="3" fill="#FFFFFF" stroke="{PILL_LINE}" stroke-width="0.75"/>'
+            + text(x + w / 2, cy + 3.6, s, 10, ink, anchor="middle"))
 
 
 def entry(x, y1, y2, color):

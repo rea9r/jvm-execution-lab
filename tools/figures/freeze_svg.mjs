@@ -14,12 +14,13 @@
 //   - a legend closer than 24px to a box
 //
 // usage: node freeze_svg.mjs <exported.svg> <out.svg> [--legend <items.json>] [--legend-x <node-id>]
-//                            [--legend-baseline <frame-name-prefix>] [--step-badges] [--strict]
+//                            [--legend-baseline <frame-name-prefix>] [--edge-label-size <px>] [--step-badges] [--strict]
 //   --legend draws a legend from a JSON list of {"fill", "stroke", "label"} (plus an optional {"title"} object),
 //   for diagrams exported with meta.legend.mode "hidden". Its left edge lines up with the box --legend-x, and its
 //   title sits on the baseline of the frame name that starts with --legend-baseline.
 //   --step-badges turns a circled digit at the start of a relationship label (① to ⑳, or ❶ to ❿) into a filled circle with the
 //   number in it, drawn at the left end of the label. A circled digit in 8px label text is too small to read.
+//   --edge-label-size sets the text size of the relationship labels (Archify draws 8px) and resizes their pills.
 import { spawn } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -29,19 +30,20 @@ import { setTimeout as sleep } from 'node:timers/promises';
 
 const args = process.argv.slice(2);
 const positional = [];
-const opts = { legend: null, legendX: null, legendBaseline: null, stepBadges: false };
+const opts = { legend: null, legendX: null, legendBaseline: null, stepBadges: false, edgeLabelSize: null };
 let strict = false;
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--legend') opts.legend = args[++i];
   else if (args[i] === '--legend-x') opts.legendX = args[++i];
   else if (args[i] === '--legend-baseline') opts.legendBaseline = args[++i];
   else if (args[i] === '--step-badges') opts.stepBadges = true;
+  else if (args[i] === '--edge-label-size') opts.edgeLabelSize = Number(args[++i]);
   else if (args[i] === '--strict') strict = true;
   else positional.push(args[i]);
 }
 const [input, output] = positional;
 if (!input || !output || (opts.legend && (!opts.legendX || !opts.legendBaseline))) {
-  console.error('usage: freeze_svg.mjs <exported.svg> <out.svg> [--legend <items.json> --legend-x <node-id> --legend-baseline <frame-name-prefix>] [--step-badges] [--strict]');
+  console.error('usage: freeze_svg.mjs <exported.svg> <out.svg> [--legend <items.json> --legend-x <node-id> --legend-baseline <frame-name-prefix>] [--edge-label-size <px>] [--step-badges] [--strict]');
   process.exit(2);
 }
 let legendItems = null;
@@ -65,29 +67,39 @@ const FREEZE = `(() => {
   const warn = (msg) => report.push('WARN  ' + msg);
   const r0 = (v) => Math.round(v);
 
-  // Step numbers: a circled digit at the start of a relationship label becomes a filled circle with the number in it.
-  // This runs before the checks, so they see the widened label.
-  if (${JSON.stringify(opts.stepBadges)}) {
+  // Relationship labels. --edge-label-size sets the size of their text (Archify draws 8px), and --step-badges turns
+  // a circled digit at the start of a label into a filled circle with the number in it. The white pill is resized to
+  // fit, around the same centre. This runs before the checks, so they see the resized labels.
+  const labelSize = ${JSON.stringify(opts.edgeLabelSize)}, stepBadges = ${JSON.stringify(opts.stepBadges)};
+  if (labelSize || stepBadges) {
     for (const t of svg.querySelectorAll('g[data-edge-from] > text')) {
-      const m = /^([\u2460-\u2473\u2776-\u277f])\s*/.exec(t.textContent);
       const pill = t.parentElement.querySelector('rect.c-mask');
-      if (!m || !pill) continue;
-      const code = m[1].codePointAt(0);
-      const n = code >= 0x2776 ? code - 0x2776 + 1 : code - 0x2460 + 1;
-      t.textContent = t.textContent.slice(m[0].length);
-      const w = t.getComputedTextLength(), r = 7, color = getComputedStyle(t).fill;
-      const y = parseFloat(pill.getAttribute('y')), h = parseFloat(pill.getAttribute('height'));
+      if (!pill) continue;
+      const m = stepBadges ? /^([\u2460-\u2473\u2776-\u277f])\s*/.exec(t.textContent) : null;
+      if (!labelSize && !m) continue;
+      let n = null;
+      if (m) {
+        const code = m[1].codePointAt(0);
+        n = code >= 0x2776 ? code - 0x2776 + 1 : code - 0x2460 + 1;
+        t.textContent = t.textContent.slice(m[0].length);
+      }
+      if (labelSize) t.style.fontSize = labelSize + 'px';
+      const size = parseFloat(getComputedStyle(t).fontSize);
+      const w = t.getComputedTextLength(), h = size + 6, r = h / 2;
       const cx = parseFloat(pill.getAttribute('x')) + parseFloat(pill.getAttribute('width')) / 2;
-      const width = 3 + 2 * r + 4 + w + 6, x = cx - width / 2, cy = y + h / 2;
-      pill.setAttribute('x', x);
-      pill.setAttribute('width', width);
-      t.setAttribute('x', x + 3 + 2 * r + 4 + w / 2);
-      const circle = document.createElementNS(NS, 'circle');
-      for (const [k, v] of Object.entries({ cx: x + 3 + r, cy, r, fill: color })) circle.setAttribute(k, v);
-      const num = document.createElementNS(NS, 'text');
-      for (const [k, v] of Object.entries({ x: x + 3 + r, y: cy + 3.2, 'font-size': '9px', 'font-weight': '700', fill: '#FFFFFF', 'text-anchor': 'middle' })) num.setAttribute(k, v);
-      num.textContent = String(n);
-      t.after(circle, num);
+      const cy = parseFloat(pill.getAttribute('y')) + parseFloat(pill.getAttribute('height')) / 2;
+      const lead = n ? 3 + 2 * r + 4 : 5, width = lead + w + 5, x = cx - width / 2, baseline = cy + 0.36 * size;
+      for (const [k, v] of Object.entries({ x, y: cy - h / 2, width, height: h })) pill.setAttribute(k, v);
+      t.setAttribute('x', x + lead + w / 2);
+      t.setAttribute('y', baseline);
+      if (n) {
+        const circle = document.createElementNS(NS, 'circle');
+        for (const [k, v] of Object.entries({ cx: x + 3 + r, cy, r, fill: getComputedStyle(t).fill })) circle.setAttribute(k, v);
+        const num = document.createElementNS(NS, 'text');
+        for (const [k, v] of Object.entries({ x: x + 3 + r, y: baseline, 'font-size': size + 'px', 'font-weight': '700', fill: '#FFFFFF', 'text-anchor': 'middle' })) num.setAttribute(k, v);
+        num.textContent = String(n);
+        t.after(circle, num);
+      }
     }
   }
 
