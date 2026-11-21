@@ -72,7 +72,7 @@ def main():
 
     parts.append(text((X0 + X1) / 2, H - 8, "code cache の使用量（MB）", "axis"))
 
-    label = "code cache の実験の段階ごとの、3つの領域の使用量"
+    label = "code cache の検証の段階ごとの、3つの領域の使用量"
     print(f'<figure class="codecache">\n<svg viewBox="0 0 {W} {H}" role="img" aria-label="{label}">')
     print("\n".join(parts))
     print("</svg>\n</figure>")
