@@ -18,7 +18,7 @@ To draw it again (Node.js, Python 3 and Google Chrome; `ARCHIFY` is the Archify 
 ```bash
 node $ARCHIFY/bin/archify.mjs finalize architecture figures/archify/jvm-flow.candidate.json build/archify/jvm-flow.html --quality showcase --json
 node tools/figures/archify-export.mjs build/archify/jvm-flow.html build/archify/export light svg-light --css figures/archify/archify-palette.css --css figures/archify/jvm-flow.css
-node tools/figures/freeze_svg.mjs build/archify/export/1-jvm-light.svg figures/archify/jvm-flow.svg --legend figures/archify/jvm-flow.legend.json --legend-x classfile --legend-baseline JVM --strict
+node tools/figures/freeze_svg.mjs build/archify/export/1-jvm-light.svg figures/archify/jvm-flow.svg --legend figures/archify/jvm-flow.legend.json --legend-x classfile --legend-baseline JVM --step-badges --strict
 python3 tools/figures/archify_embed.py figures/archify/jvm-flow.svg jvmflow --min-width 1290 > figures/overview.html
 ```
 
