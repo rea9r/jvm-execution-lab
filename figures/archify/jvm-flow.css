@@ -22,3 +22,9 @@ svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="J
 svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="JIT"] { transform: translateY(-26px); }
 svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="code cache"] { transform: translateY(-8px); }
 svg g[data-graph-role="structural-frame-label"][data-composition-frame-label^="JVM"] text { font-size: 12px !important; font-weight: 650 !important; }
+
+/*
+ * The JVM frame reaches further right than Archify draws it, so that the label of step 5 fits to the right of its
+ * vertical line (freeze_svg.mjs --labels-beside-lines) inside the frame.
+ */
+svg rect[data-composition-frame-label^="JVM"] { width: 1170px; }

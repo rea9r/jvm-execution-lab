@@ -10,17 +10,21 @@
 //   - parallel lines too close: a relationship within 12px of another relationship, a frame border or a box side,
 //     or two frame borders within 8px of each other
 //   - a relationship label or a frame name that touches a frame border, a box, another line or another label
+//   - a relationship label on its own line, or more than 8px away from it (labels sit beside their lines)
 //   - boxes of different colors stacked in the same column
 //   - a legend closer than 24px to a box
 //
 // usage: node freeze_svg.mjs <exported.svg> <out.svg> [--legend <items.json>] [--legend-x <node-id>]
-//                            [--legend-baseline <frame-name-prefix>] [--edge-label-size <px>] [--step-badges] [--strict]
+//                            [--legend-baseline <frame-name-prefix>] [--edge-label-size <px>] [--step-badges]
+//                            [--labels-beside-lines] [--strict]
 //   --legend draws a legend from a JSON list of {"fill", "stroke", "label"} (plus an optional {"title"} object),
 //   for diagrams exported with meta.legend.mode "hidden". Its left edge lines up with the box --legend-x, and its
 //   title sits on the baseline of the frame name that starts with --legend-baseline.
 //   --step-badges turns a circled digit at the start of a relationship label (① to ⑳, or ❶ to ❿) into a filled circle with the
 //   number in it, drawn at the left end of the label. A circled digit in 8px label text is too small to read.
 //   --edge-label-size sets the text size of the relationship labels (Archify draws 8px) and resizes their pills.
+//   --labels-beside-lines moves every relationship label 4px off its own line: above a horizontal segment, to the
+//   right of a vertical one. Archify puts some labels on the line and some beside it.
 import { spawn } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -30,7 +34,7 @@ import { setTimeout as sleep } from 'node:timers/promises';
 
 const args = process.argv.slice(2);
 const positional = [];
-const opts = { legend: null, legendX: null, legendBaseline: null, stepBadges: false, edgeLabelSize: null };
+const opts = { legend: null, legendX: null, legendBaseline: null, stepBadges: false, edgeLabelSize: null, besideLines: false };
 let strict = false;
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--legend') opts.legend = args[++i];
@@ -38,12 +42,13 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === '--legend-baseline') opts.legendBaseline = args[++i];
   else if (args[i] === '--step-badges') opts.stepBadges = true;
   else if (args[i] === '--edge-label-size') opts.edgeLabelSize = Number(args[++i]);
+  else if (args[i] === '--labels-beside-lines') opts.besideLines = true;
   else if (args[i] === '--strict') strict = true;
   else positional.push(args[i]);
 }
 const [input, output] = positional;
 if (!input || !output || (opts.legend && (!opts.legendX || !opts.legendBaseline))) {
-  console.error('usage: freeze_svg.mjs <exported.svg> <out.svg> [--legend <items.json> --legend-x <node-id> --legend-baseline <frame-name-prefix>] [--edge-label-size <px>] [--step-badges] [--strict]');
+  console.error('usage: freeze_svg.mjs <exported.svg> <out.svg> [--legend <items.json> --legend-x <node-id> --legend-baseline <frame-name-prefix>] [--edge-label-size <px>] [--step-badges] [--labels-beside-lines] [--strict]');
   process.exit(2);
 }
 let legendItems = null;
@@ -103,6 +108,40 @@ const FREEZE = `(() => {
     }
   }
 
+  // Labels beside their lines: each relationship label moves 4px off the nearest segment of its own line, above a
+  // horizontal segment or to the right of a vertical one, and stays within that segment where it fits.
+  if (${JSON.stringify(opts.besideLines)}) {
+    const gap = 4;
+    for (const g of svg.querySelectorAll('g[data-edge-from]')) {
+      const pill = g.querySelector(':scope > rect.c-mask');
+      const path = svg.querySelector('path[data-edge-id="' + g.dataset.edgeId + '"][data-composition-points]:not([data-graph-role="automatic-crossover-underlay"])');
+      if (!pill || !path) continue;
+      const pts = path.dataset.compositionPoints.split(';').map((p) => p.split(',').map(Number));
+      const x = +pill.getAttribute('x'), y = +pill.getAttribute('y'), w = +pill.getAttribute('width'), h = +pill.getAttribute('height');
+      const cx = x + w / 2, cy = y + h / 2;
+      let best = null;
+      for (let i = 1; i < pts.length; i++) {
+        const [x1, y1] = pts[i - 1], [x2, y2] = pts[i];
+        const horiz = Math.abs(y1 - y2) < 0.5, vert = Math.abs(x1 - x2) < 0.5;
+        if (!horiz && !vert) continue;
+        const a = horiz ? Math.min(x1, x2) : Math.min(y1, y2), b = horiz ? Math.max(x1, x2) : Math.max(y1, y2), c = horiz ? y1 : x1;
+        const along = horiz ? cx : cy, across = horiz ? cy : cx;
+        const d = Math.hypot(Math.max(a - along, along - b, 0), across - c);
+        if (!best || d < best.d) best = { horiz, a, b, c, d };
+      }
+      if (!best) continue;
+      const fit = (centre, size) => (best.b - best.a >= size + 12 ? Math.min(Math.max(centre, best.a + size / 2 + 6), best.b - size / 2 - 6) : (best.a + best.b) / 2);
+      const nx = best.horiz ? fit(cx, w) - w / 2 : best.c + gap;
+      const ny = best.horiz ? best.c - gap - h : fit(cy, h) - h / 2;
+      const dx = nx - x, dy = ny - y;
+      for (const el of g.querySelectorAll(':scope > rect.c-mask, :scope > text, :scope > circle')) {
+        const [kx, ky] = el.tagName === 'circle' ? ['cx', 'cy'] : ['x', 'y'];
+        el.setAttribute(kx, +el.getAttribute(kx) + dx);
+        el.setAttribute(ky, +el.getAttribute(ky) + dy);
+      }
+    }
+  }
+
   // Positions in the SVG's user space, after any CSS transform
   const toUser = (x, y) => { const p = svg.createSVGPoint(); p.x = x; p.y = y; return p.matrixTransform(svg.getScreenCTM().inverse()); };
   const userBox = (el) => {
@@ -121,6 +160,12 @@ const FREEZE = `(() => {
     ? s.c >= r.y && s.c <= r.y + r.height && Math.min(s.b, r.x + r.width) > Math.max(s.a, r.x)
     : s.c >= r.x && s.c <= r.x + r.width && Math.min(s.b, r.y + r.height) > Math.max(s.a, r.y);
 
+  const segDistance = (s, r) => {
+    const [ax, ay, bx, by] = s.o === 'h' ? [s.a, s.c, s.b, s.c] : [s.c, s.a, s.c, s.b];
+    const dx = Math.max(r.x - Math.max(ax, bx), Math.min(ax, bx) - (r.x + r.width), 0);
+    const dy = Math.max(r.y - Math.max(ay, by), Math.min(ay, by) - (r.y + r.height), 0);
+    return Math.hypot(dx, dy);
+  };
   const boxes = {};
   const nodes = [];
   for (const g of svg.querySelectorAll('g[data-node-id]')) {
@@ -224,6 +269,14 @@ const FREEZE = `(() => {
     for (const f of frames) if (sides(f.box).some((s) => segHitsBox(s, box))) warn(what + 'が、枠「' + f.name + '」の線にかかっている');
     for (const n of nodes) if (overlaps(box, n.box)) warn(what + 'が、箱「' + n.label + '」に重なっている');
     for (const e of edges) if (e.id !== L.owner && e.segs.some((s) => segHitsBox(s, box))) warn(what + 'の下を、線 ' + e.id + ' が通っている');
+    if (L.kind === 'edge') {
+      // Labels sit beside their own line, never on it, and close enough to read as belonging to it
+      const own = edges.find((e) => e.id === L.owner);
+      if (own) {
+        if (own.segs.some((s) => segHitsBox(s, L.box))) warn(what + 'が、自分の線に重なっている（線のすぐ横に置く）');
+        else if (Math.min(...own.segs.map((s) => segDistance(s, L.box))) > 8) warn(what + 'が、自分の線から 8px より離れている');
+      }
+    }
     for (const M of labels) if (M !== L && labels.indexOf(M) > labels.indexOf(L) && overlaps(box, grow(M.box, 2))) warn(what + 'と「' + M.name + '」が重なっている');
   }
 

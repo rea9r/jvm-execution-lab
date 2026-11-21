@@ -82,24 +82,24 @@
         </g>
         <!-- Connection labels -->
         <g>
-          <rect x="209.555" y="164" width="120.891" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="270" y="175.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)">回数がしきい値を超える</text>
+          <rect x="209.555" y="152" width="120.891" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="270" y="163.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)">回数がしきい値を超える</text>
         </g>
         <g>
-          <rect x="589.883" y="151" width="110.234" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="645" y="162.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)">プロファイルが集まる</text>
+          <rect x="589.883" y="152" width="110.234" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="645" y="163.6" font-size="10px" text-anchor="middle" fill="rgb(0, 112, 143)">プロファイルが集まる</text>
         </g>
         <g>
-          <rect x="225.883" y="76" width="88.2344" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="270" y="87.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">C2 が混んでいる</text>
+          <rect x="225.883" y="64" width="88.2344" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="270" y="75.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">C2 が混んでいる</text>
         </g>
         <g>
-          <rect x="415.773" y="120" width="88.4531" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="460" y="131.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">C2 の待ちが減る</text>
+          <rect x="464" y="120" width="88.4531" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="508.2265625" y="131.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">C2 の待ちが減る</text>
         </g>
         <g>
-          <rect x="229.773" y="252" width="80.4531" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
-          <text x="270" y="263.6" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">単純なメソッド</text>
+          <rect x="229.773" y="240" width="80.4531" height="16" rx="3" fill="rgb(255, 255, 255)" stroke="rgb(203, 213, 225)" stroke-width="0.75px"/>
+          <text x="270" y="251.60000000000002" font-size="10px" text-anchor="middle" fill="rgb(74, 74, 74)">単純なメソッド</text>
         </g>
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
         <g>
