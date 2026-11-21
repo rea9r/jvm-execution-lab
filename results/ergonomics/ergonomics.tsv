@@ -1,0 +1,10 @@
+docker options	JVM options	GC	JIT threads	max heap
+--cpus=4 --memory=2g	-	G1	3	512 MB
+--cpus=2 --memory=2g	-	G1	2	512 MB
+--cpus=1.5 --memory=2g	-	G1	2	512 MB
+--cpus=1 --memory=2g	-	Serial	2	512 MB
+--cpus=0.5 --memory=2g	-	Serial	2	512 MB
+--cpus=4 --memory=1792m	-	G1	3	448 MB
+--cpus=4 --memory=1791m	-	Serial	3	448 MB
+--cpus=4 --memory=1g	-	Serial	3	256 MB
+--cpus=1 --memory=2g	-XX:ActiveProcessorCount=4	G1	3	512 MB

@@ -176,6 +176,24 @@ In `shift`, both C2 versions of `total` are made not entrant with the reason `un
 - Writing the compilation log into the folder shared with the host (`-v`) delayed the first compilations of `subtotal` and `withTax` in 4 of 5 JAR runs, and they were compiled at tier 2 instead of tier 3. `-Xlog:async` removes the delay. Runs from the class directory were not slowed in the 2nd to 6th calls, but their first call was: 780 µs with the log in the shared folder (the warmup runs before they were moved to `/tmp`, in the git history) against 502 µs with the log in `/tmp`. The script therefore writes the logs for measurement to `/tmp` and copies them afterwards.
 - `tools/huge_source.py` writes methods of exactly 8,000 and 8,004 bytes of bytecode. Called 20,000 times, the 8,000-byte one is compiled at tier 3 and 4 (8.0 ms); the 8,004-byte one is never compiled (66.1 ms) unless `-XX:-DontCompileHugeMethods` is given (8.0 ms).
 
+### GC, JIT threads and heap in a container
+
+`scripts/ergonomics.sh` starts the JVM in containers with different CPU limits (`--cpus`, which the JVM rounds up to a number of CPUs) and memory, and records what `-XX:+PrintFlagsFinal` reports in `results/ergonomics/ergonomics.tsv`.
+
+| CPU limit | Memory | GC | JIT threads | Max heap |
+| ---: | ---: | --- | ---: | ---: |
+| 4 | 2 GB | G1 | 3 | 512 MB |
+| 2 | 2 GB | G1 | 2 | 512 MB |
+| 1.5 | 2 GB | G1 | 2 | 512 MB |
+| 1 | 2 GB | Serial | 2 | 512 MB |
+| 0.5 | 2 GB | Serial | 2 | 512 MB |
+| 4 | 1792 MB | G1 | 3 | 448 MB |
+| 4 | 1791 MB | Serial | 3 | 448 MB |
+| 4 | 1 GB | Serial | 3 | 256 MB |
+| 1, with `-XX:ActiveProcessorCount=4` | 2 GB | G1 | 3 | 512 MB |
+
+G1 needs two or more CPUs and at least 1,792 MB, as the GC tuning guide describes server-class machines; otherwise the JVM picks Serial. The maximum heap is a quarter of the container memory.
+
 ## Layout
 
 | Path | Contents |
