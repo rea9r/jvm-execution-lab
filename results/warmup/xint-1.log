@@ -1,2 +1,2 @@
-[100480542794ns]    1     n       jdk.internal.vm.Continuation::enterSpecial (native)   (static)
-[100480626669ns]    2     n       jdk.internal.vm.Continuation::doYield (native)   (static)
+[68143614051476ns]    1     n       jdk.internal.vm.Continuation::enterSpecial (native)   (static)
+[68143614091392ns]    2     n       jdk.internal.vm.Continuation::doYield (native)   (static)

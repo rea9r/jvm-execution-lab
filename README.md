@@ -72,7 +72,7 @@ The compile ID is the same in all three logs, which is how a line in the code ca
 
 ### Warmup: does a method get faster when it is called again and again?
 
-`scripts/warmup.sh` calls `Cart.total` on 10,000 items 500 times, and 50 times with `-Xint` (interpreter only).
+`scripts/warmup.sh` calls `Cart.total` on 10,000 items 500 times, and 50 times with `-Xint` (interpreter only). The compilation logs are written to `/tmp` in the container and copied afterwards; writing them to the folder shared with the host delays the compiler threads (see the last experiment).
 
 ```bash
 python3 tools/timeline.py results/warmup/jit-1.csv results/warmup/jit-1.log Cart
@@ -83,15 +83,15 @@ The first prints, for each compilation of `Cart` and `Cart$Item`, the call durin
 
 | Calls | Time per call (median of 5 runs) | What runs `Cart.total` |
 | --- | ---: | --- |
-| 1st | 780 µs | The interpreter. `subtotal` and `withTax` reach tier 3, and `price()` and `quantity()` reach tier 1, during this call |
-| 2nd to 6th | 217 µs | Still the interpreter, calling compiled `subtotal` and `withTax` |
+| 1st | 502 µs | The interpreter. `subtotal` and `withTax` reach tier 3 and start their C2 compilation, and `price()` and `quantity()` reach tier 1, during this call |
+| 2nd to 6th | 223 µs | Still the interpreter, calling compiled `subtotal` and `withTax` |
 | C1 (from the 7th, until about the 56th) | 31 µs | C1 code with full profiling (tier 3), first entered through OSR in the 7th call |
-| C2 OSR version ready (about the 57th to the 81st) | 48 µs | Each call starts in the tier 3 code and leaves it for the C2 OSR version |
-| C2 (from about the 82nd) | 5.9 µs | C2 code (tier 4) |
-| `-Xint`, 1st | 756 µs | |
-| `-Xint`, 2nd onwards | 562 µs | |
+| C2 OSR version ready (about the 57th to the 80th) | 48 µs | Each call starts in the tier 3 code and leaves it for the C2 OSR version |
+| C2 (from about the 81st) | 6.2 µs | C2 code (tier 4) |
+| `-Xint`, 1st | 873 µs | |
+| `-Xint`, 2nd onwards | 572 µs | |
 
-In all 5 runs, the C1 OSR version started in the 7th call, the C2 OSR version was installed in the 57th to 63rd, and the normal C2 version in the 81st to 88th. With `-Xint`, the log has two lines, both native method entries (`Continuation::enterSpecial` and `doYield`); no Java method is compiled.
+In all 5 runs, the C1 OSR version started in the 7th call. In 4 runs, the C2 OSR version was installed in the 56th to 60th call and the normal C2 version in the 80th to 85th. In the other run (the first one), the C2 compilations started late, and these were the 362nd and the 388th. With `-Xint`, the log has two lines, both native method entries (`Continuation::enterSpecial` and `doYield`); no Java method is compiled.
 
 The slower stage between the two C2 versions comes from OSR. Once a C2 OSR version exists, the tier 3 code deoptimizes its own frame when its loop counter overflows (`Runtime1::counter_overflow` in `c1_Runtime1.cpp`), so that the interpreter can enter the OSR version. To stop this from happening on every call, the compilation policy also compiles the normal entry with C2 (`CompilationPolicy::call_event` in `compilationPolicy.cpp`: "avoid OSRs during each invocation of the method"). In the log, the C2 compilation of the normal entry starts within two calls after the tier 3 OSR version is made not entrant with the reason `OSR invalidation of lower level`.
 
@@ -153,11 +153,11 @@ All three runs gave nearly the same numbers.
 
 | Implementations seen at the call site | Time per call (median of 5 runs) | C2 inlining decision for `TaxRule::apply` |
 | --- | ---: | --- |
-| 1 | 7.4 µs | `inline (hot)` |
-| 2 | 9.4 µs | `inline (hot)` for both implementations |
+| 1 | 7.5 µs | `inline (hot)` |
+| 2 | 9.7 µs | `inline (hot)` for both implementations |
 | 3 | 93 µs | `failed to inline: virtual call` |
 
-In `shift`, both C2 versions of `total` are made not entrant with the reason `uncommon trap` in the 1,001st and 1,002nd calls, and `total` is compiled again at tier 3 and tier 4. The order of these events was the same in all 5 runs, but the time per call afterwards was not: about 93 µs in 4 runs and about 49 µs in 1. This is not explained yet.
+In `shift`, both C2 versions of `total` are made not entrant with the reason `uncommon trap` in the 1,001st and 1,002nd calls, and `total` is compiled again at tier 3 and tier 4. The order of these events was the same in all 5 runs, and the time per call afterwards was 48 to 52 µs. (In an earlier set of runs that wrote the logs to the shared folder, it was about 93 µs in 4 runs and about 49 µs in 1.)
 
 ### Startup, the 8,000-byte limit and logging
 

@@ -1,111 +1,117 @@
-10    1       3       java.lang.Object::<init> (1 bytes)
-10    2       3       java.lang.Byte::toUnsignedInt (6 bytes)
+11    1       3       java.lang.Object::<init> (1 bytes)
+11    2       3       java.lang.Byte::toUnsignedInt (6 bytes)
 11    3       3       java.lang.String::hashCode (60 bytes)
-11    4     n 0       jdk.internal.misc.Unsafe::getReferenceVolatile (native)   
-11    5     n 0       jdk.internal.vm.Continuation::enterSpecial (native)   (static)
-11    6     n 0       jdk.internal.vm.Continuation::doYield (native)   (static)
-12    7       3       java.lang.String::coder (15 bytes)
-13    9       3       java.lang.String::length (11 bytes)
-13    8       3       java.lang.String::isLatin1 (19 bytes)
-13   11     n 0       java.lang.System::arraycopy (native)   (static)
-14   10       3       jdk.internal.util.Preconditions::checkIndex (18 bytes)
-15   14       4       java.lang.Object::<init> (1 bytes)
-15   15       3       java.lang.String::charAt (25 bytes)
-19    1       3       java.lang.Object::<init> (1 bytes)   made not entrant: not used
-19   18       1       TaxedCart$Item::rule (5 bytes)
-19   19       1       TaxedCart$Item::price (5 bytes)
-19   20       1       TaxedCart$Item::quantity (5 bytes)
-20   21       2       TaxedCart::subtotal (12 bytes)
-20   22       2       TaxedCart$Standard::apply (10 bytes)
-20   23       2       TaxedCart$Reduced::apply (10 bytes)
-20   12       2       java.lang.Record::<init> (5 bytes)
-20   24       4       TaxedCart::subtotal (12 bytes)
-21   21       2       TaxedCart::subtotal (12 bytes)   made not entrant: not used
-21   25       4       TaxedCart$Standard::apply (10 bytes)
-21   22       2       TaxedCart$Standard::apply (10 bytes)   made not entrant: not used
-21   13       2       TaxedCart$Item::<init> (20 bytes)
-21   16       3       java.lang.StringLatin1::charAt (15 bytes)
-22   17       3       java.lang.String::checkIndex (10 bytes)
-22   26       4       TaxedCart$Reduced::apply (10 bytes)
-22   23       2       TaxedCart$Reduced::apply (10 bytes)   made not entrant: not used
-22   27 %     3       TaxedCart::total @ 11 (50 bytes)
+12    4     n 0       jdk.internal.misc.Unsafe::getReferenceVolatile (native)   
+12    5     n 0       jdk.internal.vm.Continuation::enterSpecial (native)   (static)
+12    6     n 0       jdk.internal.vm.Continuation::doYield (native)   (static)
+13    7       3       java.lang.String::coder (15 bytes)
+20    9       3       java.lang.String::length (11 bytes)
+20    8       3       java.lang.String::isLatin1 (19 bytes)
+20   10       3       jdk.internal.util.Preconditions::checkIndex (18 bytes)
+21   11     n 0       java.lang.System::arraycopy (native)   (static)
+21   14       4       java.lang.Object::<init> (1 bytes)
+21   12       3       java.lang.Record::<init> (5 bytes)
+21   13       3       TaxedCart$Item::<init> (20 bytes)
+22    1       3       java.lang.Object::<init> (1 bytes)   made not entrant: not used
+22   15       4       java.lang.Record::<init> (5 bytes)
+22   12       3       java.lang.Record::<init> (5 bytes)   made not entrant: not used
+22   16       4       TaxedCart$Item::<init> (20 bytes)
+23   13       3       TaxedCart$Item::<init> (20 bytes)   made not entrant: not used
+23   17       3       java.lang.String::charAt (25 bytes)
+23   18       3       java.lang.StringLatin1::charAt (15 bytes)
+23   19       3       java.lang.String::checkIndex (10 bytes)
+24   20       1       TaxedCart$Item::rule (5 bytes)
+24   21       1       TaxedCart$Item::price (5 bytes)
+24   23       2       TaxedCart::subtotal (12 bytes)
+24   22       1       TaxedCart$Item::quantity (5 bytes)
+24   24       2       TaxedCart$Standard::apply (10 bytes)
+24   26       4       TaxedCart::subtotal (12 bytes)
+25   23       2       TaxedCart::subtotal (12 bytes)   made not entrant: not used
+26   25       2       TaxedCart$Reduced::apply (10 bytes)
+26   27       4       TaxedCart$Standard::apply (10 bytes)
+27   24       2       TaxedCart$Standard::apply (10 bytes)   made not entrant: not used
+27   29 %     3       TaxedCart::total @ 11 (50 bytes)
+        27   28       4       TaxedCart$Reduced::apply (10 bytes)
+27   25       2       TaxedCart$Reduced::apply (10 bytes)   made not entrant: not used
+                      @ 27   TaxedCart$Item::rule (5 bytes)   inline
+                              @ 32   TaxedCart::subtotal (12 bytes)   inline
+                                @ 1   TaxedCart$Item::price (5 bytes)   inline
+                                @ 6   TaxedCart$Item::quantity (5 bytes)   inline
+                              @ 35   TaxedCart$TaxRule::apply (0 bytes)   failed to inline: no static binding
+28   30       3       TaxedCart::total (50 bytes)
                               @ 27   TaxedCart$Item::rule (5 bytes)   inline
                               @ 32   TaxedCart::subtotal (12 bytes)   inline
                                 @ 1   TaxedCart$Item::price (5 bytes)   inline
                                 @ 6   TaxedCart$Item::quantity (5 bytes)   inline
                               @ 35   TaxedCart$TaxRule::apply (0 bytes)   failed to inline: no static binding
-23   28       3       TaxedCart::total (50 bytes)
-                              @ 27   TaxedCart$Item::rule (5 bytes)   inline
-                              @ 32   TaxedCart::subtotal (12 bytes)   inline
-                                @ 1   TaxedCart$Item::price (5 bytes)   inline
-                                @ 6   TaxedCart$Item::quantity (5 bytes)   inline
-                              @ 35   TaxedCart$TaxRule::apply (0 bytes)   failed to inline: no static binding
-25   29 %     4       TaxedCart::total @ 11 (50 bytes)
-27   27 %     3       TaxedCart::total @ 11 (50 bytes)   made not entrant: OSR invalidation of lower level
+29   31 %     4       TaxedCart::total @ 11 (50 bytes)
+31   29 %     3       TaxedCart::total @ 11 (50 bytes)   made not entrant: OSR invalidation of lower level
                               @ 27   TaxedCart$Item::rule (5 bytes)   accessor
                               @ 32   TaxedCart::subtotal (12 bytes)   inline (hot)
                                 @ 1   TaxedCart$Item::price (5 bytes)   accessor
                                 @ 6   TaxedCart$Item::quantity (5 bytes)   accessor
-                              @ 35   TaxedCart$Standard::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart$Reduced::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (42940/87528 counts) = TaxedCart$Reduced   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (44588/87528 counts) = TaxedCart$Standard
-28   30       4       TaxedCart::total (50 bytes)
-29   28       3       TaxedCart::total (50 bytes)   made not entrant: not used
+                              @ 35   TaxedCart$Standard::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart$Reduced::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (71002/144760 counts) = TaxedCart$Reduced   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (73758/144760 counts) = TaxedCart$Standard
+32   32       4       TaxedCart::total (50 bytes)
+33   33     n 0       java.lang.System::nanoTime (native)   (static)
+33   30       3       TaxedCart::total (50 bytes)   made not entrant: not used
                               @ 27   TaxedCart$Item::rule (5 bytes)   accessor
                               @ 32   TaxedCart::subtotal (12 bytes)   inline (hot)
                                 @ 1   TaxedCart$Item::price (5 bytes)   accessor
                                 @ 6   TaxedCart$Item::quantity (5 bytes)   accessor
-                              @ 35   TaxedCart$Standard::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart$Reduced::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (91511/186834 counts) = TaxedCart$Reduced   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (95323/186834 counts) = TaxedCart$Standard
-31   31     n 0       java.lang.System::nanoTime (native)   (static)
-50   32     n 0       jdk.internal.misc.Unsafe::putByte (native)   
-50   33       3       jdk.internal.util.DecimalDigits::uncheckedPutCharLatin1 (40 bytes)
-51   34       3       jdk.internal.util.DecimalDigits::uncheckedPutPairLatin1 (31 bytes)
-51   35       3       java.lang.AbstractStringBuilder::isLatin1 (16 bytes)
-51   41       3       jdk.internal.util.DecimalDigits::stringSize (55 bytes)
-51   45       3       jdk.internal.util.DecimalDigits::uncheckedGetCharsLatin1 (160 bytes)
-51   44       4       jdk.internal.util.DecimalDigits::uncheckedPutCharLatin1 (40 bytes)
-52   33       3       jdk.internal.util.DecimalDigits::uncheckedPutCharLatin1 (40 bytes)   made not entrant: not used
-52   36       3       java.lang.AbstractStringBuilder::needsNewBuffer (33 bytes)
-52   49       3       jdk.internal.util.DecimalDigits::stringSize (47 bytes)
-52   47       4       jdk.internal.util.DecimalDigits::uncheckedPutPairLatin1 (31 bytes)
-53   34       3       jdk.internal.util.DecimalDigits::uncheckedPutPairLatin1 (31 bytes)   made not entrant: not used
-53   50       3       jdk.internal.util.DecimalDigits::uncheckedGetCharsLatin1 (105 bytes)
-53   37       2       java.lang.StringBuilder::append (8 bytes)
-53   52       4       jdk.internal.util.DecimalDigits::stringSize (55 bytes)
-54   41       3       jdk.internal.util.DecimalDigits::stringSize (55 bytes)   made not entrant: not used
-55   38       2       java.lang.AbstractStringBuilder::append (102 bytes)
-55   39       2       java.lang.StringLatin1::coderFromChar (10 bytes)
-55   51       4       java.lang.AbstractStringBuilder::isLatin1 (16 bytes)
-55   53     n 0       java.lang.Object::hashCode (native)   
-55   40       2       java.lang.AbstractStringBuilder::ensureCapacitySameCoder (26 bytes)
-56   35       3       java.lang.AbstractStringBuilder::isLatin1 (16 bytes)   made not entrant: not used
-56   54     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLLLL)L (native)   (static)
-56   42       3       java.lang.StringBuilder::append (8 bytes)
-56   43       3       java.lang.AbstractStringBuilder::append (74 bytes)
-57   56     n 0       java.lang.invoke.MethodHandle::invokeBasic(LLLLL)L (native)   
-57   46       3       java.lang.StringBuilder::append (8 bytes)
-57   57     n 0       java.lang.invoke.MethodHandle::linkToSpecial(LLLLLLL)L (native)   (static)
-58   55       1       java.lang.Enum::ordinal (5 bytes)
-58   48       3       java.lang.AbstractStringBuilder::append (72 bytes)
-58   60     n 0       java.lang.invoke.MethodHandle::linkToSpecial(LJL)L (native)   (static)
-59   59       3       java.util.concurrent.ConcurrentHashMap::spread (10 bytes)
-59   62     n 0       jdk.internal.misc.Unsafe::compareAndSetLong (native)   
-59   58       1       java.lang.Class::isPrimitive (5 bytes)
-59   64     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLL)L (native)   (static)
-60   61       3       java.util.Objects::requireNonNull (14 bytes)
-60   65     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLL)L (native)   (static)
-60   63       1       jdk.internal.util.StrongReferenceKey::get (5 bytes)
-61   68     n 0       java.lang.invoke.MethodHandle::invokeBasic(LJ)L (native)   
-61   66       3       java.util.concurrent.ConcurrentHashMap::tabAt (21 bytes)
-61   69     n 0       java.lang.invoke.MethodHandle::linkToSpecial(LLJL)L (native)   (static)
-62   67       3       jdk.internal.misc.Unsafe::getReferenceAcquire (7 bytes)
-62   71     n 0       jdk.internal.misc.Unsafe::compareAndSetReference (native)   
-62   70       3       java.lang.Math::min (11 bytes)
-62   72     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLLL)L (native)   (static)
-63   73       1       java.lang.invoke.MethodType::returnType (5 bytes)
-63   74     n 0       java.lang.Object::clone (native)   
-63   75     n 0       java.lang.invoke.MethodHandle::invokeBasic(LLLL)L (native)   
-64   76       3       java.lang.Enum::<init> (15 bytes)
-64   77       4       java.lang.Byte::toUnsignedInt (6 bytes)
-65    2       3       java.lang.Byte::toUnsignedInt (6 bytes)   made not entrant: not used
-65   78       1       jdk.internal.classfile.impl.AbstractPoolEntry::index (5 bytes)
-65   79     n 0       java.lang.invoke.MethodHandle::invokeBasic(J)L (native)   
+                              @ 35   TaxedCart$Standard::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart$Reduced::apply (10 bytes)   inline (hot)   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (226783/462501 counts) = TaxedCart$Reduced   callee changed to  TaxedCart::total (50 bytes)    \-> TypeProfile (235718/462501 counts) = TaxedCart$Standard
+52   34     n 0       jdk.internal.misc.Unsafe::putByte (native)   
+52   35       3       jdk.internal.util.DecimalDigits::uncheckedPutCharLatin1 (40 bytes)
+53   36       3       jdk.internal.util.DecimalDigits::uncheckedPutPairLatin1 (31 bytes)
+53   37       3       java.lang.AbstractStringBuilder::isLatin1 (16 bytes)
+53   43       3       jdk.internal.util.DecimalDigits::stringSize (55 bytes)
+53   47       3       jdk.internal.util.DecimalDigits::uncheckedGetCharsLatin1 (160 bytes)
+53   46       4       jdk.internal.util.DecimalDigits::uncheckedPutCharLatin1 (40 bytes)
+54   35       3       jdk.internal.util.DecimalDigits::uncheckedPutCharLatin1 (40 bytes)   made not entrant: not used
+54   38       3       java.lang.StringBuilder::append (8 bytes)
+54   51       3       jdk.internal.util.DecimalDigits::stringSize (47 bytes)
+54   49       4       jdk.internal.util.DecimalDigits::uncheckedPutPairLatin1 (31 bytes)
+55   36       3       jdk.internal.util.DecimalDigits::uncheckedPutPairLatin1 (31 bytes)   made not entrant: not used
+55   52       3       jdk.internal.util.DecimalDigits::uncheckedGetCharsLatin1 (105 bytes)
+55   48       3       java.lang.StringBuilder::append (8 bytes)
+55   54       4       jdk.internal.util.DecimalDigits::stringSize (55 bytes)
+56   43       3       jdk.internal.util.DecimalDigits::stringSize (55 bytes)   made not entrant: not used
+57   39       2       java.lang.AbstractStringBuilder::needsNewBuffer (33 bytes)
+57   40       2       java.lang.AbstractStringBuilder::append (102 bytes)
+57   53       4       java.lang.AbstractStringBuilder::isLatin1 (16 bytes)
+57   37       3       java.lang.AbstractStringBuilder::isLatin1 (16 bytes)   made not entrant: not used
+57   41       2       java.lang.StringLatin1::coderFromChar (10 bytes)
+58   55     n 0       java.lang.Object::hashCode (native)   
+58   42       2       java.lang.AbstractStringBuilder::ensureCapacitySameCoder (26 bytes)
+58   56     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLLLL)L (native)   (static)
+59   44       3       java.lang.StringBuilder::append (8 bytes)
+59   45       3       java.lang.AbstractStringBuilder::append (74 bytes)
+59   50       3       java.lang.AbstractStringBuilder::append (72 bytes)
+59   59     n 0       java.lang.invoke.MethodHandle::invokeBasic(LLLLL)L (native)   
+60   57       3       java.util.Objects::requireNonNull (14 bytes)
+60   60     n 0       java.lang.invoke.MethodHandle::linkToSpecial(LLLLLLL)L (native)   (static)
+60   58       1       java.lang.Enum::ordinal (5 bytes)
+61   61       1       java.lang.Class::isPrimitive (5 bytes)
+61   62       4       java.lang.AbstractStringBuilder::append (102 bytes)
+61   64     n 0       java.lang.invoke.MethodHandle::linkToSpecial(LJL)L (native)   (static)
+61   65     n 0       jdk.internal.misc.Unsafe::compareAndSetLong (native)   
+62   63       3       java.util.concurrent.ConcurrentHashMap::spread (10 bytes)
+62   40       2       java.lang.AbstractStringBuilder::append (102 bytes)   made not entrant: not used
+62   66       1       jdk.internal.util.StrongReferenceKey::get (5 bytes)
+62   67     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLL)L (native)   (static)
+63   68     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLL)L (native)   (static)
+63   69       3       java.util.concurrent.ConcurrentHashMap::tabAt (21 bytes)
+63   71     n 0       java.lang.invoke.MethodHandle::invokeBasic(LJ)L (native)   
+64   70       3       jdk.internal.misc.Unsafe::getReferenceAcquire (7 bytes)
+64   72     n 0       java.lang.invoke.MethodHandle::linkToSpecial(LLJL)L (native)   (static)
+64   73       3       java.lang.Math::min (11 bytes)
+64   74     n 0       jdk.internal.misc.Unsafe::compareAndSetReference (native)   
+64   75     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLLL)L (native)   (static)
+65   76       1       java.lang.invoke.MethodType::returnType (5 bytes)
+65   77     n 0       java.lang.Object::clone (native)   
+65   78     n 0       java.lang.invoke.MethodHandle::invokeBasic(LLLL)L (native)   
+66   79       3       java.lang.Enum::<init> (15 bytes)
+66   80       4       java.lang.Byte::toUnsignedInt (6 bytes)
+66    2       3       java.lang.Byte::toUnsignedInt (6 bytes)   made not entrant: not used
+66   81       1       jdk.internal.classfile.impl.AbstractPoolEntry::index (5 bytes)
+67   82     n 0       java.lang.invoke.MethodHandle::invokeBasic(J)L (native)   
 check=35971614000

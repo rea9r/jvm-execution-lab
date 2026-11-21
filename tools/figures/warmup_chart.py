@@ -1,6 +1,6 @@
 """Draw the warmup chart of experiment (1) as an HTML snippet for a Zenn html-embed block.
 
-usage: python3 tools/figures/warmup_chart.py results/warmup 4 > figures/warmup.html
+usage: python3 tools/figures/warmup_chart.py results/warmup 5 > figures/warmup.html
 The second argument picks which run to draw (jit-<n>.csv and xint-<n>.csv).
 """
 import math
@@ -108,9 +108,9 @@ def main():
     parts.append(polyline(jit, JIT))
 
     # Medians of the 5 runs (tools/warmup_report.py)
-    for r, t, label in ((3.5, 217, "約220µs"), (22, 31, "約31µs"), (210, 5.9, "約6µs")):
+    for r, t, label in ((3.5, 223, "約220µs"), (22, 31, "約31µs"), (210, 6.2, "約6µs")):
         parts.append(text(x(r), y(t) - 10, label, "value"))
-    parts.append(text(x(18), y(562) - 10, "約560µs", "value"))
+    parts.append(text(x(18), y(572) - 10, "約570µs", "value"))
 
     parts.append(f'<line x1="{X0}" x2="{X0 + 22}" y1="20" y2="20" stroke="{JIT}" stroke-width="2"/>')
     parts.append(text(X0 + 30, 24, "JIT あり（既定の設定）", "legend", "start"))
