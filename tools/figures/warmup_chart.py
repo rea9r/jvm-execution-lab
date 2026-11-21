@@ -11,7 +11,7 @@ import sys
 W, H = 700, 440
 X0, X1, Y0, Y1 = 64, 684, 76, 384
 ROUND_MAX = 500
-T_MIN, T_MAX = 4, 1000
+T_MIN, T_MAX = 4, 2000
 
 SURFACE = "#181b1f"
 GRID = "#2c3038"
@@ -88,7 +88,7 @@ def main():
             # 140µs is clear of both lines in every stage
             parts.append(text((x(lo) + x(hi)) / 2, y(140), label, "stage"))
 
-    for t in (5, 10, 20, 50, 100, 200, 500, 1000):
+    for t in (5, 10, 20, 50, 100, 200, 500, 1000, 2000):
         parts.append(f'<line x1="{X0}" x2="{X1}" y1="{y(t):.1f}" y2="{y(t):.1f}" stroke="{GRID}" stroke-width="1"/>')
         parts.append(text(X0 - 8, y(t) + 4, f"{t:,}", "tick", "end"))
     for r in (1, 2, 5, 10, 20, 50, 100, 200, 500):
