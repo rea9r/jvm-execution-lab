@@ -47,6 +47,7 @@ Compiles the programs inside the container.
 
 ```bash
 scripts/warmup.sh
+scripts/warmup-short.sh
 scripts/inlining.sh
 scripts/codecache.sh
 scripts/taxed.sh
@@ -93,6 +94,12 @@ The first prints, for each compilation of `Cart` and `Cart$Item`, the call durin
 In all 5 runs, the C1 OSR version started in the 7th call, the C2 OSR version was installed in the 57th to 63rd, and the normal C2 version in the 81st to 88th. With `-Xint`, the log has two lines, both native method entries (`Continuation::enterSpecial` and `doYield`); no Java method is compiled.
 
 The slower stage between the two C2 versions comes from OSR. Once a C2 OSR version exists, the tier 3 code deoptimizes its own frame when its loop counter overflows (`Runtime1::counter_overflow` in `c1_Runtime1.cpp`), so that the interpreter can enter the OSR version. To stop this from happening on every call, the compilation policy also compiles the normal entry with C2 (`CompilationPolicy::call_event` in `compilationPolicy.cpp`: "avoid OSRs during each invocation of the method"). In the log, the C2 compilation of the normal entry starts within two calls after the tier 3 OSR version is made not entrant with the reason `OSR invalidation of lower level`.
+
+### Warmup with a short loop
+
+`scripts/warmup-short.sh` calls `Cart.total` over 10 items, 200,000 times. A call takes a few tens of nanoseconds, close to the resolution of `System.nanoTime()`, so the timelines in `results/warmup-short/timeline-*.txt` are what to read (the per-call CSV stays in `build/`).
+
+In all 5 runs, no OSR version of `total` was compiled. Its normal code was compiled at tier 3 in the 214th to 217th call and at tier 4 from the 1,906th to 1,953rd call in 4 runs (616th and 2,430th in the other). With 10 iterations per call, the backedge count would reach the OSR threshold of 60,000 only after 6,000 calls; the invocation and combined thresholds are reached first.
 
 ### Inlining: does splitting code into small methods cost a call each time?
 

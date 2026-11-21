@@ -1,0 +1,11 @@
+    round   24 +     0.1us  id=   9    tier=1  Cart$Item::price (5 bytes)
+    round   57 +     0.5us  id=  12    tier=3  Cart::withTax (10 bytes)
+    round   70 +     3.9us  id=  11    tier=3  Cart::subtotal (12 bytes)
+    round  134 +     0.0us  id=  10    tier=1  Cart$Item::quantity (5 bytes)
+    round  176 +     0.0us  id=  14    tier=4  Cart::withTax (10 bytes)
+    round  217 +     0.0us  id=  15    tier=3  Cart::total (43 bytes)
+    round 1240 +     0.0us  id=  12    tier=3  Cart::withTax (10 bytes)   made not entrant: not used
+    round 1953 +     0.1us  id=  16    tier=4  Cart::total (43 bytes)
+   round 13154 +     2.0us  id=  15    tier=3  Cart::total (43 bytes)   made not entrant: not used
+   round 13188 +     0.0us  id=  17    tier=4  Cart::subtotal (12 bytes)
+   round 14480 +     0.0us  id=  11    tier=3  Cart::subtotal (12 bytes)   made not entrant: not used
